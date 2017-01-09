@@ -10,6 +10,7 @@ import br.ufrpe.assistec.negocio.OSExisteException;
 import br.ufrpe.assistec.negocio.OSNaoEncontradaException;
 
 
+
 public class Programa {
 	
 		
@@ -51,11 +52,5 @@ public class Programa {
 					
 		}while(entrada < 9);
 
-		System.out.println("Obrigado por utilizar AssisTec!"); 
-        input.close();
-	}
 
-
-}
-
-
+}}
