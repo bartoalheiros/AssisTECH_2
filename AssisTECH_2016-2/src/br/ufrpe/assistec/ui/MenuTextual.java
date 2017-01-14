@@ -20,15 +20,16 @@ public class MenuTextual {
 	Scanner input = new Scanner(System.in);
 	
 	public void MenuPrincipal(int entrada) throws ClienteJahCadastradoException{
-		
+		Cliente cli;
 		
 		switch(entrada) {
 
+			
 		
 		case 1:
 			//Cadastrar Cliente
 			
-			Cliente cli = this.novoCliente();
+			cli = this.novoCliente();
 			
 			try{
 				servidor.cadastrarCliente(cli);
@@ -42,7 +43,8 @@ public class MenuTextual {
 		case 2:
 			//Buscar Cliente
 			
-			this.buscarCliente();
+			cli = this.buscarCliente();
+			System.out.println(cli);
 			
 			break;
 
@@ -155,25 +157,7 @@ public class MenuTextual {
 			
 		case 7:
 			//Nova Ordem
-			
-			Ordem os = new Ordem();
-			System.out.println("OS Número: \n");
-			String num = input.nextLine();
-			input.nextLine(); //Limpa o buffer do teclado
-			os.setNumero(num);
-
-			System.out.println("Data de Entrada: \n");
-			String data = input.nextLine();
-			os.setDataEntrada(data);
-			input.nextLine(); //Limpa o buffer do teclado
-			
-			System.out.println("Portador: \n");
-			String portador = input.nextLine();
-			input.nextLine(); //Limpa o buffer do teclado
-			os.setPortador(portador);
-			
-			Cliente cliente = this.cadastrarCliente();
-			
+			this.novaOrdem();
 			
 			break;
 			
@@ -193,29 +177,62 @@ public class MenuTextual {
 	 * 
 	 * Submenu que cadastra um cliente numa ordem*/
 	
-	public Cliente cadastrarCliente() {
-		System.out.println("Deseja criar um novo cadastro de Cliente ou buscar no sistema?");
-		System.out.println("1 - Cadastrar novo Cliente");
-		System.out.println("2 - Utilizar Cliente já cadastrado");
+	public Cliente cadastrarCliente(Ordem os) {
+		int opcao;
 		
-		int opcao = input.nextInt();
+		do {
+			System.out.println("Deseja criar um novo cadastro de Cliente ou buscar no sistema?");
 		
-		if(opcao == 1) {
-			Cliente cli = this.novoCliente();
+			System.out.println("1 - Cadastrar novo Cliente");
+			System.out.println("2 - Utilize Cliente já cadastrado");
+			System.out.println("3 - Sair");
 			
-			try{
-				servidor.cadastrarCliente(cli);
-				System.out.println("Cliente Cadastrado com Sucesso!");
-			}catch(ClienteJahCadastradoException e0) {
-				System.err.println(e0.getMessage());
+			Cliente cli;
+			opcao = input.nextInt();
+			
+			
+			switch(opcao) {
+				case 1:
+					cli = this.novoCliente();
+					
+					try{
+						servidor.cadastrarCliente(cli);
+						System.out.println("Cliente Cadastrado com Sucesso!");
+					}catch(ClienteJahCadastradoException e0) {
+						System.err.println(e0.getMessage());
+					}
+					
+					break;
+					
+				case 2:
+					input.nextLine();
+					cli = this.buscarCliente();
+					
+					System.out.println(cli);
+					System.out.println("Tem certeza de que deseja utilizar este cliente na Ordem?");
+					
+					String resposta = input.next();
+					
+					if(resposta.equals("s") || resposta.equals("S")) {
+						os.setCliente(cli);
+						break;
+					}else if (resposta.equals("n") || resposta.equals("N")) {
+						this.cadastrarCliente(os);
+					}
+					
+					break;
+					
+				
 			}
 			
-		}else if(opcao == 2) {
+				if(opcao  > 3) {
+					throw new IllegalArgumentException("Opção Inválida!");
+				}
 			
-		}else{
-			throw new IllegalArgumentException("Opção Inválida!");
-		}
-		return null;
+		}while(opcao < 3);
+			
+		
+			return null;
 	}
 	
 	public Cliente novoCliente() {
@@ -257,10 +274,10 @@ public class MenuTextual {
 		
 	}
 	
-	public void buscarCliente() {
+	public Cliente buscarCliente() {
 
-		Cliente cli_2 = new Cliente();
-		String cpf = null;
+		Cliente cli_2 = null;
+		String cpf;
 		
 		System.out.println("Digite o cpf: ");
 		cpf = input.nextLine();
@@ -268,12 +285,33 @@ public class MenuTextual {
 		
 		try{
 			cli_2 = servidor.buscarCliente(cpf);
-			System.out.println(cli_2);
 		}catch(ClienteNaoCadastradoException e1) {
 			System.out.println(e1.getMessage());
 		}
+		
+		return cli_2;
    }
 
-}//Teste GitKraken_2
+	public void novaOrdem() {
+		Ordem os = new Ordem();
+		
+		System.out.println("Digite o número da OS: \n");
+		String num = input.nextLine();
+		input.nextLine(); //Limpa o buffer do teclado
+		os.setNumero(num);
 
-//Teste Novo Repositório
+		System.out.println("Data de Entrada: \n");
+		String data = input.nextLine();
+		os.setDataEntrada(data);
+		input.nextLine(); //Limpa o buffer do teclado
+		
+		System.out.println("Portador: \n");
+		String portador = input.nextLine();
+		input.nextLine(); //Limpa o buffer do teclado
+		os.setPortador(portador);
+		
+		this.cadastrarCliente(os);
+		
+	}
+}
+
