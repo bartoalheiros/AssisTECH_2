@@ -7,25 +7,25 @@ import br.ufrpe.assistec.negocio.beans.Tecnico;
 public class RepositorioTecnicosArray implements IRepositorioTecnicos {
 	private Tecnico[] tecnicos;
 	private int proximo;
-	
+
 	public RepositorioTecnicosArray() {
 		this.tecnicos = new Tecnico[100];
 		this.proximo = 0;
 	}
-	
+
 	public boolean existe(Tecnico tecnico) {
 		boolean resultado = false;
-		
+
 		for(int i = 0; i < this.proximo; i++) {
 			if(this.tecnicos[i].getMatricula().equals(tecnico.getMatricula())){
 				resultado = true;
 			}
 		}
-		
+
 		return resultado;
 	}
-	
-	
+
+
 	public void cadastrar(Tecnico tecnico) {
 		if(this.existe(tecnico)) {
 			//TecnicoJahExisteException
@@ -34,7 +34,7 @@ public class RepositorioTecnicosArray implements IRepositorioTecnicos {
 			this.proximo++;
 		}
 	}
-	
+
 	public void listar() {
 		if(this.proximo > 0){
 			for(int i = 0; i < this.proximo; i++) {
@@ -44,23 +44,23 @@ public class RepositorioTecnicosArray implements IRepositorioTecnicos {
 			System.out.println("Nenhum tecnico cadastrado.");
 		}
 	}
-	
+
 	/*buscar: Caso encontre a matrícula procurada, devolve a instância de Tecnico que possue tal matrícula.*/
-	
+
 	public Tecnico buscar(String mat){
 		Tecnico tec = null;
-		
+
 		for(int i = 0; i < this.proximo; i++) {
 			if(this.tecnicos[i].getMatricula().equals(mat)) {
 				tec = new Tecnico();
 				tec = this.tecnicos[i];
 			}
 		}
-		
+
 		return tec;
 	}
 
-	
+
 	public void remover(String matricula) {
 		int i = this.procurarIndice(matricula);                          //removerCadastro(String cpf) - remove o cadastro do array de clientes, seguindo as regras
 		if(i == this.proximo - 1) {                                            // 1 -  se o cliente for o último do array, ou seja, se i == this.proximo - 1 
@@ -74,8 +74,8 @@ public class RepositorioTecnicosArray implements IRepositorioTecnicos {
 			System.out.print("Técnico Removido com Sucesso.");                 // linha 46 eu atualizo o valor de próxima para próximo - 1 e a última posição passa
 		}		                                                                   // a ser a que era penúltima, anteriormente.
 	}
-		
-	
+
+
 	public int procurarIndice(String matr) {
 		int indice = 0, i;
 		for(i = 0; i < this.proximo; i++) { 
@@ -87,30 +87,30 @@ public class RepositorioTecnicosArray implements IRepositorioTecnicos {
 		if(i == this.proximo) {
 			//IndiceNaoEncontradoException
 		}
-		
+
 		return indice;
 	}
-	
+
 	public int procurarIndice(Tecnico tec) {
 		String mat = tec.getMatricula();
 		int indice = 0, i;
-		
+
 		for(i = 0; i < this.proximo; i++) { 
 			if( this.tecnicos[i].getMatricula().equals(mat) ) { 
 				indice = i;
 				break;
 			}
 		}
-		
+
 		return indice;
 	} 
 
-	
+
 	public void atualizar(Tecnico tec) {
 		int i;
-		
+
 		i = procurarIndice(tec);
 		this.tecnicos[i] = tec;
-		
+
 	}
 }

@@ -13,7 +13,7 @@ public class ControladorClientes {
 
 	public boolean existe(Cliente c) {
 		boolean resultado = ((RepositorioClientesArray)this.repositorio).existe(c);
-		
+
 		return resultado;
 	}
 
@@ -33,14 +33,14 @@ public class ControladorClientes {
 
 	public Cliente buscar(String cpf) throws ClienteNaoCadastradoException {
 		Cliente cli = this.repositorio.buscar(cpf);
-		
+
 		if(cli == null) {
 			throw new ClienteNaoCadastradoException(cpf);
 		}
-		
+
 		return cli;
 	}
-	
+
 	public void alterar (Cliente c) throws ClienteNaoCadastradoException {
 		if(this.existe(c)){
 			((RepositorioClientesArray)this.repositorio).alterar(c);
@@ -49,7 +49,7 @@ public class ControladorClientes {
 			throw new ClienteNaoCadastradoException(cpf);
 		}
 	}
-	
+
 	public void remover(String cpf) throws ClienteNaoCadastradoException {
 		if(this.buscar(cpf) != null){
 			((RepositorioClientesArray)this.repositorio).remover(cpf);
@@ -57,10 +57,10 @@ public class ControladorClientes {
 			throw new ClienteNaoCadastradoException(cpf);
 		}
 	}
-	
+
 	public void listar() { 
 		((RepositorioClientesArray)this.repositorio).listar();
 	}
-	
+
 
 }
