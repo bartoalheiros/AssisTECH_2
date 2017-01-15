@@ -116,6 +116,8 @@ public class ServidorAssisTech {
 		ordens.alterar(os, tipo, o);
 	}
 
-
+	public void listarTecnicos() {
+		tecnicos.listar();
+	}
 
 }

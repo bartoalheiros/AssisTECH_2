@@ -2,19 +2,12 @@ package br.ufrpe.assistec.ui;
 
 import java.util.Scanner;
 
-import br.ufrpe.assistec.negocio.ClienteJahCadastradoException;
-import br.ufrpe.assistec.negocio.ClienteNaoCadastradoException;
-import br.ufrpe.assistec.negocio.EquipamentoExisteException;
-import br.ufrpe.assistec.negocio.EquipamentoNaoExisteException;
-import br.ufrpe.assistec.negocio.OSExisteException;
-import br.ufrpe.assistec.negocio.OSNaoEncontradaException;
-
 
 
 public class Programa {
 
 
-	public static void main(String[] args) throws OSNaoEncontradaException, OSExisteException, ClienteJahCadastradoException, ClienteNaoCadastradoException, EquipamentoExisteException, EquipamentoNaoExisteException {
+	public static void main(String[] args) throws Exception {
 
 		MenuTextual menuTextual = new MenuTextual();
 		Scanner sc = new Scanner(System.in);
@@ -54,4 +47,5 @@ public class Programa {
 		}while(entrada < 9 || entrada == 0);
 
 		System.out.println("Obrigado por utilizar AssisTech!!");
+		sc.close();
 	}}

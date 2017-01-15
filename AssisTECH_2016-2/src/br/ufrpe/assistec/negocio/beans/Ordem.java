@@ -5,20 +5,20 @@ public class Ordem {
 	private String numero;
 	private Cliente cliente;
 	private Equipamento equipamento;
-	private Tecnico tecnicoResponsavel;
+	private Tecnico tecnico;
 	private String dataEntrada;
 	private String dataEntrega;
-	private String nomePortador; //O portador é A pessoa que recebeu o equipamento, das mãos do cliente, na entrada. Que será um funcionário da loja: técnico ou atendente.
+	private String nomePortador; // O portador é A pessoa que recebeu o equipamento, das mãos do cliente, na entrada. Que será um funcionário da loja: técnico ou atendente.
 	private String prioridade;
-	private String caracteristicasDefeito;
-	private String relatorioDeManutencao;
+	private String caracDefeito; // Características do defeito.
+	private String relatorio;
 
-	public void setTecnicoResponsavel(Tecnico tecnico) {
-		this.tecnicoResponsavel = tecnico;
+	public void setTecnico(Tecnico tecnico) {
+		this.tecnico = tecnico;
 	}
 
-	public Tecnico getTecnicoResponsavel() {
-		return this.tecnicoResponsavel;
+	public Tecnico getTecnico() {
+		return this.tecnico;
 	}
 
 	public void setPortador(String nomePortador) {
@@ -77,23 +77,23 @@ public class Ordem {
 		this.dataEntrega = dataEntrega;
 	}
 
-	public String getCaracteristicasDefeito() {
-		return caracteristicasDefeito;
+	public String getCaracDefeito() {
+		return caracDefeito;
 	}
-	public void setCaracteristicasDefeito(String caracteristicasDefeito) {
-		this.caracteristicasDefeito = caracteristicasDefeito;
+	public void setCaracDefeito(String caracDefeito) {
+		this.caracDefeito = caracDefeito;
 	}
 
 	public String getRelatorioDeManutencao() {
-		return this.relatorioDeManutencao;
+		return this.relatorio;
 	}
 
-	public void setRelatorioDeManutencao(String relatorioDeManutencao) {
-		this.relatorioDeManutencao = relatorioDeManutencao;
+	public void setRelatorio(String relatorio) {
+		this.relatorio = relatorio;
 	}
 
 	public void modificarRelatorioDeManutencao(String relatorioDeManutencao) {
-		this.relatorioDeManutencao = this.relatorioDeManutencao + " " + relatorioDeManutencao; //concatena a String recebida de relatorio e acrescenta à antiga.
+		this.relatorio = this.relatorio + " " + relatorioDeManutencao; //concatena a String recebida de relatorio e acrescenta à antiga.
 	}
 
 	public boolean equals(Ordem ordem) {
@@ -107,7 +107,7 @@ public class Ordem {
 
 	@Override
 	public String toString() {
-		return "OS No: " + this.numero +"\n" + "Data: " + this.dataEntrada + "\n" + "Portador: " + this.nomePortador + "\n\n" + "                 Cliente"+ "\n\n" + this.cliente.toString() + "\n" + "                 Equipamento" + "\n\n" + this.equipamento.toString() + "\n" + "Características do Defeito: \n" + this.getCaracteristicasDefeito() + "\n\n" + "Técnico Responsável" + "\n"  + this.tecnicoResponsavel.toString() + "\n\n" + "Relatório de Manutenção" + "\n" + this.relatorioDeManutencao + "\n\n";
+		return "OS No: " + this.numero +"\n" + "Data: " + this.dataEntrada + "\n" + "Portador: " + this.nomePortador + "\n\n" + "                 Cliente"+ "\n\n" + this.cliente.toString() + "\n" + "                 Equipamento" + "\n\n" + this.equipamento.toString() + "\n" + "Características do Defeito: \n" + this.getCaracDefeito() + "\n\n" + "Técnico Responsável" + "\n"  + this.tecnico.toString() + "\n\n" + "Relatório de Manutenção" + "\n" + this.relatorio + "\n\n";
 	}
 
 	public String toStringPrioridades() {
@@ -120,7 +120,7 @@ public class Ordem {
 		resultado += String.format("%6s %10s\n", "Data: ", this.dataEntrada);
 		resultado += String.format("%6s %10s\n", "Cliente: ", this.cliente.getNomeCompleto());
 		resultado += String.format("%6s %10s\n", "Equip: ", this.equipamento.getTipo());
-		resultado += String.format("%6s %10s", "Defeito: ", this.getCaracteristicasDefeito());
+		resultado += String.format("%6s %10s", "Defeito: ", this.getCaracDefeito());
 
 		return resultado;
 	}

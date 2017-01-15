@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 import br.ufrpe.assistec.negocio.ClienteJahCadastradoException;
 import br.ufrpe.assistec.negocio.ClienteNaoCadastradoException;
+import br.ufrpe.assistec.negocio.EquipamentoEmServicoException;
 import br.ufrpe.assistec.negocio.EquipamentoExisteException;
 import br.ufrpe.assistec.negocio.EquipamentoNaoExisteException;
+import br.ufrpe.assistec.negocio.OSExisteException;
 import br.ufrpe.assistec.negocio.ServidorAssisTech;
 import br.ufrpe.assistec.negocio.TecnicoNaoCadastradoException;
 import br.ufrpe.assistec.negocio.beans.Cliente;
@@ -20,7 +22,7 @@ public class MenuTextual {
 	Scanner sc = new Scanner(System.in);
 
 
-	public void menuPrincipal(int entrada) throws ClienteJahCadastradoException{
+	public void menuPrincipal(int entrada) throws ClienteJahCadastradoException, TecnicoNaoCadastradoException{
 		Cliente cli;
 
 
@@ -102,7 +104,18 @@ public class MenuTextual {
 
 		case 7:
 			//Nova Ordem
-			this.novaOrdem();
+			Ordem ordem = this.novaOrdem();
+			
+			try {
+				servidor.cadastrarOrdem(ordem);
+			} catch (OSExisteException e) {
+				// TODO Auto-generated catch block
+				System.err.println(e.getMessage());
+			} catch (EquipamentoEmServicoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 
 			break;
 
@@ -153,6 +166,7 @@ public class MenuTextual {
 
 				System.out.println(cli);
 				System.out.println("Tem certeza de que deseja utilizar este cliente na Ordem?");
+				System.out.println("'S' ou 's' para Sim, 'n' ou 'N' para Não.");
 
 				String resposta = sc.next();
 
@@ -237,38 +251,98 @@ public class MenuTextual {
 		return cli_2;
 	}
 
-	public void novaOrdem() {
-		Ordem os = new Ordem();
+	public Ordem novaOrdem() throws TecnicoNaoCadastradoException {
+		Ordem ordem = new Ordem();
 		Equipamento equip;
-		String var;
+		String var, relatorio;
+		int resposta;
+		boolean continuar = true;
 
 		System.out.println("Digite o número da OS: \n");
 		var = sc.nextLine();
 		sc.nextLine(); //Limpa o buffer do teclado
-		os.setNumero(var);
+		ordem.setNumero(var);
 
 		System.out.println("Data de Entrada: \n");
 		var = sc.nextLine();
-		os.setDataEntrada(var);
+		ordem.setDataEntrada(var);
 		sc.nextLine(); //Limpa o buffer do teclado
 
 		System.out.println("Portador: \n");
 		var = sc.nextLine();
 		sc.nextLine(); //Limpa o buffer do teclado
-		os.setPortador(var);
+		ordem.setPortador(var);
 
-		this.cadastrarCliente(os);
+		this.cadastrarCliente(ordem);
 		
 		equip = this.cadastrarEquipamento();
 		
-		os.setEquipamento(equip);
+		ordem.setEquipamento(equip);
 		
 		System.out.println("Digite as características do defeito(resumido)");
 		var = sc.nextLine();
-		os.setCaracteristicasDefeito(var);
+		ordem.setCaracDefeito(var);
 		
-		this.cadastrarTecnico();
+		do{
+			
+			System.out.println("Deseja listar todos os técnicos ou digitar uma matrícula específica?");
+			System.out.println("1 - Listar Técnicos\n");
+			System.out.println("2 - Digitar uma matrícula de Técnico\n");
+			System.out.println("Opção: ");
+			resposta = sc.nextInt();
+			sc.nextLine(); //Limpando o buffer do teclado.
+			
+			if(resposta > 2 || resposta < 1) {
+				throw new IllegalArgumentException("Parâmetro Inválido!");
+			}else {
+				continuar = false;
+			}
+			
+		}while(continuar);
+		
+		if(resposta == 1) {
+			servidor.listarTecnicos();
+		}
+		
+		this.associarTecnico(ordem);
+		
+		System.out.println("Relatório de Manutenção: \n\n");
+		System.out.println("Entre com o relatório de Manutenção: \n");
+		relatorio = sc.nextLine();
+		sc.nextLine(); // limpando buffer do teclado.
+		
+		ordem.setRelatorio(relatorio);
+		
+		return ordem;
 
+	}
+	
+	public void associarTecnico(Ordem ordem) throws TecnicoNaoCadastradoException {
+		
+		Tecnico tecnico = new Tecnico();
+		String matricula, respostta;
+		
+		System.out.println("Digite a matrícula do técnico que deseja atrelar à OS: ");
+		matricula = sc.nextLine();
+		sc.nextLine(); //limpando buffer
+		
+		tecnico = servidor.buscarTecnico(matricula);
+		
+		System.out.println(tecnico);
+		System.out.println("Tem certeza de que deseja cadastrar este técnico na OS?");
+		System.out.println("'S' ou 's' para Sim, 'n' ou 'N' para Não.");
+		respostta = sc.nextLine();
+		sc.nextLine();
+		
+		if(respostta.equals("S") || respostta.equals("s")) {
+			
+			ordem.setTecnico(tecnico);
+			System.out.println("Técnico associado à ordem " + ordem.getNumero());
+			
+		}else if(respostta.equals("N") || respostta.equals("n")) {
+			
+			this.associarTecnico(ordem);
+		}
 	}
 	
 	public Equipamento cadastrarEquipamento() {

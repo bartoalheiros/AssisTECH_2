@@ -166,7 +166,7 @@ public class RepositorioOrdensArray implements IRepositorioOrdens {
 		case "tec":
 			if(o instanceof Tecnico) {
 				Tecnico tec = (Tecnico) o;
-				os.setTecnicoResponsavel(tec);
+				os.setTecnico(tec);
 			}
 
 			break;

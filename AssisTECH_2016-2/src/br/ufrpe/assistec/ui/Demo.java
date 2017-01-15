@@ -52,10 +52,10 @@ public class Demo {
 		/*Setando os dados na OS.*/
 		os.setCliente(cli);
 		os.setEquipamento(equipamento);
-		os.setTecnicoResponsavel(tecnico);
+		os.setTecnico(tecnico);
 
-		os.setCaracteristicasDefeito("Equipamento não liga. Luz Power não acende.");
-		os.setRelatorioDeManutencao("Equipamento ainda não aberto por um técnico.");
+		os.setCaracDefeito("Equipamento não liga. Luz Power não acende.");
+		os.setRelatorio("Equipamento ainda não aberto por um técnico.");
 
 		servidor.cadastrarOrdem(os);
 
