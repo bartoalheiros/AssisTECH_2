@@ -1,11 +1,7 @@
 package br.ufrpe.assistec.ui;
 
-import br.ufrpe.assistec.negocio.ClienteJahCadastradoException;
 import br.ufrpe.assistec.negocio.EquipamentoEmServicoException;
-import br.ufrpe.assistec.negocio.EquipamentoExisteException;
-import br.ufrpe.assistec.negocio.EquipamentoNaoExisteException;
 import br.ufrpe.assistec.negocio.OSExisteException;
-import br.ufrpe.assistec.negocio.OSNaoEncontradaException;
 import br.ufrpe.assistec.negocio.ServidorAssisTech;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 import br.ufrpe.assistec.negocio.beans.Equipamento;
@@ -14,11 +10,9 @@ import br.ufrpe.assistec.negocio.beans.Tecnico;
 
 import java.util.Scanner;
 
-import br.ufrpe.assistec.dados.*;
-
 public class Demo {
 
-	public static void main(String[] args) throws OSNaoEncontradaException, EquipamentoEmServicoException, OSExisteException, ClienteJahCadastradoException, EquipamentoNaoExisteException, EquipamentoExisteException {
+	public static void main(String[] args) throws Exception {
 
 		ServidorAssisTech servidor = ServidorAssisTech.getInstance();
 
@@ -39,7 +33,7 @@ public class Demo {
 		//Cadastro do equipamento
 		equipamento.setTipo("Computador HP 200 G1 Slim Tower");
 		equipamento.setNumeroSerie("LW430UA#ABA");
-		equipamento.setOs(os.getNumero());
+		equipamento.setNumeroDeOrdem(os.getNumero());
 		servidor.cadastrarEquipamento(equipamento);
 
 		//cadastrando técnico
@@ -65,7 +59,7 @@ public class Demo {
 		Ordem os3 = null;
 		os3 = servidor.buscarOrdem("123456");
 
-		System.out.println("OS do equipamento3 eh: " + equip3.getOs());
+		System.out.println("OS do equipamento3 eh: " + equip3.getNumeroDeOrdem());
 		System.out.println();
 		System.out.println(equip3);
 

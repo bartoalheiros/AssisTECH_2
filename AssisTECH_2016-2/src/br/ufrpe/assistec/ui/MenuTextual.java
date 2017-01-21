@@ -8,6 +8,7 @@ import br.ufrpe.assistec.negocio.EquipamentoEmServicoException;
 import br.ufrpe.assistec.negocio.EquipamentoExisteException;
 import br.ufrpe.assistec.negocio.EquipamentoNaoExisteException;
 import br.ufrpe.assistec.negocio.OSExisteException;
+import br.ufrpe.assistec.negocio.OSNaoEncontradaException;
 import br.ufrpe.assistec.negocio.ServidorAssisTech;
 import br.ufrpe.assistec.negocio.TecnicoNaoCadastradoException;
 import br.ufrpe.assistec.negocio.beans.Cliente;
@@ -121,6 +122,8 @@ public class MenuTextual {
 
 		case 8:
 			//Buscar Ordem
+			
+			this.buscarOrdem();
 
 			break;
 
@@ -129,6 +132,26 @@ public class MenuTextual {
 
 	}
 
+	
+	public void buscarOrdem() {
+		String numeroDaOrdem;
+		boolean entradaInvalida = true;
+		
+		do{
+			System.out.println("Digite o número da Ordem que deseja buscar: ");
+			numeroDaOrdem = sc.nextLine();
+			sc.nextLine(); // limpa buffer do teclado.
+			
+			try {
+				servidor.buscarOrdem(numeroDaOrdem);
+				entradaInvalida = false;
+			} catch (OSNaoEncontradaException e) {
+				System.err.println(e.getMessage());
+			}
+			
+		}while(entradaInvalida);
+	}
+	
 	/*cadastrarCliente():
 	 * 
 	 * Submenu que cadastra um cliente numa ordem*/
@@ -253,10 +276,9 @@ public class MenuTextual {
 
 	public Ordem novaOrdem() throws TecnicoNaoCadastradoException {
 		Ordem ordem = new Ordem();
-		Equipamento equip;
 		String var, relatorio;
 		int resposta;
-		boolean continuar = true;
+		boolean continuar = true, equipamentoNaoCadastrado = true;
 
 		System.out.println("Digite o número da OS: \n");
 		var = sc.nextLine();
@@ -275,9 +297,18 @@ public class MenuTextual {
 
 		this.cadastrarCliente(ordem);
 		
-		equip = this.cadastrarEquipamento();
+		do{
+			
+			try {
 		
-		ordem.setEquipamento(equip);
+				this.cadastrarEquipamento(ordem);
+				equipamentoNaoCadastrado = false;
+			} catch (EquipamentoEmServicoException e) {
+				System.err.println(e.getMessage());
+			}
+		
+		}while(equipamentoNaoCadastrado);
+		
 		
 		System.out.println("Digite as características do defeito(resumido)");
 		var = sc.nextLine();
@@ -345,31 +376,130 @@ public class MenuTextual {
 		}
 	}
 	
-	public Equipamento cadastrarEquipamento() {
+	/*
+	 * Devolve a instância da ordem recebida como parâmetro, com o equipamento cadastrado nela
+	 * 
+	 * */
+	public Ordem cadastrarEquipamento(Ordem ordem) throws EquipamentoEmServicoException {
 		
-		Equipamento equip = new Equipamento();
-		String var = null;
-		System.out.println("Digite o no de Série: ");
-		var = sc.nextLine();
-		sc.nextLine(); //Limpa o buffer do teclado
+		Equipamento equipamento = new Equipamento();
+		String tipoDeEquipamento = null, numeroDeSerie, inserirEquipamento, numeroDeOrdem;
+		boolean resposta = true, alternativaInvalida = true;
+		int opcao = -1;
+		
+		
+		do{
+			System.out.println("Deseja adicionar um equipamento já existente no sistema à ordem ou criar um novo?");
+			System.out.println("1 - Adicionar um equipamento existente");
+			System.out.println("2 - Cadastrar um novo equipamento e adicionar à ordem");
+			opcao = sc.nextInt();
+			sc.nextLine(); // Limpa o buffer do teclado
+			
+			
+			if(opcao == 1){
+				System.out.println("Digite o número  de Série do equipamento: ");
+				numeroDeSerie = sc.nextLine();
+				sc.nextLine(); 
+				
+				try {
+					equipamento = servidor.buscarEquipamento(numeroDeSerie);
+				} catch (EquipamentoNaoExisteException e) {
+					System.err.println(e.getMessage());
+				}
+				
+				numeroDeOrdem = equipamento.getNumeroDeOrdem();
+				
+				if(numeroDeOrdem.equals("00")){
+					
+					System.out.println("Equipamento: \n");
+					System.out.println(equipamento);
+					
+					do{
+						System.out.println("\n\nTem certeza que deseja inserir o equipamento na ordem?");
+						System.out.println("'S' ou 's' para Sim. 'N' ou 'n' para Não. (Volta ao menu anterior)");
+						
+						inserirEquipamento = sc.nextLine();
+						sc.nextLine();
+						
+						if(inserirEquipamento.equals("S") || inserirEquipamento.equals("s")) {
+							ordem.setEquipamento(equipamento);
+							System.out.println("Equipamento inserido na ordem!");
+							alternativaInvalida = false;
+						}else if(inserirEquipamento.equals("N") || inserirEquipamento.equals("n")) {
+							this.cadastrarEquipamento(ordem);
+							alternativaInvalida = false;
+						}
+						
+					}while(alternativaInvalida);
+					
+					resposta = false;
+					
+				}else {
+					throw new EquipamentoEmServicoException(ordem.getNumero());
+				}
+				
+				
+				
+			}else if(opcao == 2){
+				System.out.println("Digite o no de Série: ");
+				numeroDeSerie = sc.nextLine();
+				sc.nextLine(); 
 
-		equip.setNumeroSerie(var);
+				equipamento.setNumeroSerie(numeroDeSerie);
+
+				System.out.println("Tipo de Equipamento: ");
+				tipoDeEquipamento = sc.nextLine();
+				sc.nextLine(); 
+
+				equipamento.setTipo(tipoDeEquipamento);
+				
+				equipamento.setNumeroDeOrdem(ordem.getNumero());
+
+				System.out.println("OS no" + equipamento.getNumeroDeOrdem());
+
+				try {
+					servidor.cadastrarEquipamento(equipamento);
+				}catch(EquipamentoExisteException e) {
+					System.out.println(e.getMessage());
+				}
+				
+				ordem.setEquipamento(equipamento);
+				
+				resposta = false;
+			}else {
+				throw new IllegalArgumentException("Parâmetro Inválido!!");
+			}
+		}while(resposta);
+		
+		
+		
+		return ordem;
+	}
+	
+	public void cadastrarEquipamento() {
+		Equipamento equipamento = new Equipamento();
+		String numeroDeSerie, tipoDeEquipamento;
+		
+		
+		System.out.println("Digite o no de Série: ");
+		numeroDeSerie = sc.nextLine();
+		sc.nextLine(); 
+
+		equipamento.setNumeroSerie(numeroDeSerie);
 
 		System.out.println("Tipo de Equipamento: ");
-		var = sc.nextLine();
-		sc.nextLine(); //Limpa o buffer do teclado
+		tipoDeEquipamento = sc.nextLine();
+		sc.nextLine(); 
 
-		equip.setTipo(var);
-
-		System.out.println("OS no" + equip.getOs());
+		equipamento.setTipo(tipoDeEquipamento);
+		
+		System.out.println("OS no" + equipamento.getNumeroDeOrdem());
 
 		try {
-			servidor.cadastrarEquipamento(equip);
-		}catch(EquipamentoExisteException e2) {
-			System.out.println(e2.getMessage());
+			servidor.cadastrarEquipamento(equipamento);
+		}catch(EquipamentoExisteException e) {
+			System.out.println(e.getMessage());
 		}
-		
-		return equip;
 	}
 	
 	public void cadastrarTecnico() {

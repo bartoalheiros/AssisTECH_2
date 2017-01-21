@@ -18,11 +18,11 @@ public class Equipamento {
 		this.numOS = "00";
 	}
 
-	public String getOs() {
+	public String getNumeroDeOrdem() {
 		return numOS;
 	}
-	public void setOs(String os) {
-		this.numOS = os;
+	public void setNumeroDeOrdem(String numeroDaOrdem) {
+		this.numOS = numeroDaOrdem;
 	}
 
 	public String getTipo() {
@@ -65,7 +65,7 @@ public class Equipamento {
 
 		e1.setTipo("Guitarra");
 		e1.setNumeroSerie("Marshall 332");
-		e1.setOs("112");
+		e1.setNumeroDeOrdem("112");
 
 		System.out.println(e1);
 	}
