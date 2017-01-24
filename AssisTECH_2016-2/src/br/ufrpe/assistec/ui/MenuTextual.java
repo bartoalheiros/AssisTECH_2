@@ -25,7 +25,7 @@ public class MenuTextual {
 
 	public void menuPrincipal(int entrada) throws ClienteJahCadastradoException, TecnicoNaoCadastradoException{
 		Cliente cli;
-
+		Ordem ordem;
 
 		switch(entrada) {
 
@@ -105,7 +105,7 @@ public class MenuTextual {
 
 		case 7:
 			//Nova Ordem
-			Ordem ordem = this.novaOrdem();
+			ordem = this.novaOrdem();
 			
 			try {
 				servidor.cadastrarOrdem(ordem);
@@ -123,7 +123,8 @@ public class MenuTextual {
 		case 8:
 			//Buscar Ordem
 			
-			this.buscarOrdem();
+			ordem = this.buscarOrdem();
+			System.out.println(ordem);
 
 			break;
 
@@ -133,7 +134,8 @@ public class MenuTextual {
 	}
 
 	
-	public void buscarOrdem() {
+	public Ordem buscarOrdem() {
+		Ordem ordem = new Ordem();
 		String numeroDaOrdem;
 		boolean entradaInvalida = true;
 		
@@ -143,13 +145,15 @@ public class MenuTextual {
 			sc.nextLine(); // limpa buffer do teclado.
 			
 			try {
-				servidor.buscarOrdem(numeroDaOrdem);
+				ordem = servidor.buscarOrdem(numeroDaOrdem);
 				entradaInvalida = false;
 			} catch (OSNaoEncontradaException e) {
 				System.err.println(e.getMessage());
 			}
 			
 		}while(entradaInvalida);
+		
+		return ordem;
 	}
 	
 	/*cadastrarCliente():
@@ -158,6 +162,7 @@ public class MenuTextual {
 
 	public Cliente cadastrarCliente(Ordem os) {
 		int opcao;
+		Cliente cli = null;
 
 		do {
 			System.out.println("Deseja criar um novo cadastro de Cliente ou buscar no sistema?");
@@ -166,7 +171,7 @@ public class MenuTextual {
 			System.out.println("2 - Utilize Cliente já cadastrado");
 			System.out.println("3 - Sair");
 
-			Cliente cli;
+			
 			opcao = sc.nextInt();
 
 
@@ -212,7 +217,7 @@ public class MenuTextual {
 		}while(opcao < 3);
 
 
-		return null;
+		return cli;
 	}
 
 	public Cliente novoCliente() {
@@ -333,9 +338,11 @@ public class MenuTextual {
 		
 		if(resposta == 1) {
 			servidor.listarTecnicos();
+			this.associarTecnico(ordem);
+		}else if(resposta == 2) {
+			this.associarTecnico(ordem);
+			
 		}
-		
-		this.associarTecnico(ordem);
 		
 		System.out.println("Relatório de Manutenção: \n\n");
 		System.out.println("Entre com o relatório de Manutenção: \n");
