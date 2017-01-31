@@ -48,7 +48,7 @@ public class Demo {
 		os.setEquipamento(equipamento);
 		os.setTecnico(tecnico);
 
-		os.setCaracDefeito("Equipamento não liga. Luz Power não acende.");
+		os.setCaracteristicasDoDefeito("Equipamento não liga. Luz Power não acende.");
 		os.setRelatorio("Equipamento ainda não aberto por um técnico.");
 
 		servidor.cadastrarOrdem(os);
@@ -76,13 +76,14 @@ public class Demo {
 		Equipamento equip2 = new Equipamento();
 		os2 = new Ordem();
 
-		try {
+	//	try {
 
 			os2.setNumero("1234567");
 			os2.setDataEntrada("24/09/2016");
 			os2.setPortador("Josias Miguel");
 
-			cli.setNomeCompleto("José Padilha Almeida Caetano");
+			cli.setPrimeiroNome("José");
+			cli.setSegundoNome("Caetano");
 			cli.setEmail("josepad27@yahoo.com.br");
 			cli.setTelefone("3437-4132");
 
@@ -90,7 +91,7 @@ public class Demo {
 			equip2.setNumeroSerie("LW430UA#ABA");
 			os2.setEquipamento(equip2);
 
-			servidor.cadastrarOrdem(os2);
+	/*		//servidor.cadastrarOrdem(os2);
 
 		} catch(OSExisteException existeExcept) {
 
@@ -101,8 +102,10 @@ public class Demo {
 			System.out.println("cheguei aqui");
 			System.err.print(equipEmServico.getMessage());
 
-		}
-
+		}*/
+		
+		
+		servidor.listarOrdens();
 
 
 	}

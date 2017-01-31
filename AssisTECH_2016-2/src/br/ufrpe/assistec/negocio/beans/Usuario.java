@@ -1,14 +1,16 @@
 package br.ufrpe.assistec.negocio.beans;
 
 public class Usuario {
-	protected String nomeCompleto;
+	protected String primeiroNome;
+	protected String segundoNome;
 	protected String email;
 	protected String telefone;
 	protected String endereco;
 	protected int numOrdens;
 
-	public Usuario(String nomeCompleto, String email, String telefone, String endereco, int numOrdens) {
-		this.nomeCompleto = nomeCompleto;
+	public Usuario(String primeiroNome, String segundoNome, String email, String telefone, String endereco, int numOrdens) {
+		this.setPrimeiroNome(primeiroNome);
+		this.setSegundoNome(segundoNome);
 		this.email = email;
 		this.telefone = telefone;
 		this.numOrdens = numOrdens;
@@ -17,6 +19,16 @@ public class Usuario {
 
 	public Usuario(){
 
+	}
+	
+	
+
+	public String getSegundoNome() {
+		return segundoNome;
+	}
+
+	public void setSegundoNome(String segundoNome) {
+		this.segundoNome = segundoNome;
 	}
 
 	public long getNumOrdens() {
@@ -36,12 +48,12 @@ public class Usuario {
 		this.endereco = endereco;
 	}
 
-	public String getNomeCompleto() {
-		return this.nomeCompleto;
+	public String getPrimeiroNome() {
+		return this.primeiroNome;
 	}
 
-	public void setNomeCompleto(String nome) {
-		this.nomeCompleto = nome;
+	public void setPrimeiroNome(String primeiroNome) {
+		this.primeiroNome = primeiroNome;
 	}
 
 	public String getEmail() {
@@ -65,7 +77,7 @@ public class Usuario {
 	}
 
 	public String toString() {
-		String resultado = String.format("%5s %5s\n", "Nome: ", this.nomeCompleto);
+		String resultado = String.format("%5s %5s\n", "Nome: ", this.primeiroNome);
 		resultado += String.format("%6s %5s\n", "Email: ", this.email);
 		resultado += String.format("%7s %1s\n", "Telefone: ", this.telefone);
 		resultado += String.format("%5s %1s\n", "OS's: ", this.numOrdens);

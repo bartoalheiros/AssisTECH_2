@@ -49,7 +49,7 @@ public class RepositorioOrdensArray implements IRepositorioOrdens {
 	public void listar() {
 		if(this.proxima > 0){
 			for(int i = 0; i < this.proxima; i ++) {
-				System.out.print(this.ordens[i].toStringResumo());
+				System.out.print(this.ordens[i].toStringTabela());
 			}
 		}else{
 			System.out.println("Nenhuma OS Cadastrada.");
