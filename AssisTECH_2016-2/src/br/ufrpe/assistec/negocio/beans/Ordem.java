@@ -10,7 +10,7 @@ public class Ordem {
 	private String dataEntrega;
 	private String nomePortador; // O portador é A pessoa que recebeu o equipamento, das mãos do cliente, na entrada. Que será um funcionário da loja: técnico ou atendente.
 	private String prioridade;
-	private String caracDefeito; // Características do defeito.
+	private String caracteristicasDoDefeito;
 	private String relatorio;
 
 	public void setTecnico(Tecnico tecnico) {
@@ -77,11 +77,11 @@ public class Ordem {
 		this.dataEntrega = dataEntrega;
 	}
 
-	public String getCaracDefeito() {
-		return caracDefeito;
+	public String getCaracteristicasDoDefeito() {
+		return caracteristicasDoDefeito;
 	}
-	public void setCaracDefeito(String caracDefeito) {
-		this.caracDefeito = caracDefeito;
+	public void setCaracteristicasDoDefeito(String caracteristicasDoDefeito) {
+		this.caracteristicasDoDefeito = caracteristicasDoDefeito;
 	}
 
 	public String getRelatorioDeManutencao() {
@@ -107,20 +107,20 @@ public class Ordem {
 
 	@Override
 	public String toString() {
-		return "OS No: " + this.numero +"\n" + "Data: " + this.dataEntrada + "\n" + "Portador: " + this.nomePortador + "\n\n" + "                 Cliente"+ "\n\n" + this.cliente.toString() + "\n" + "                 Equipamento" + "\n\n" + this.equipamento.toString() + "\n" + "Características do Defeito: \n" + this.getCaracDefeito() + "\n\n" + "Técnico Responsável" + "\n"  + this.tecnico.toString() + "\n\n" + "Relatório de Manutenção" + "\n" + this.relatorio + "\n\n";
+		return "OS No: " + this.numero +"\n" + "Data: " + this.dataEntrada + "\n" + "Portador: " + this.nomePortador + "\n\n" + "                 Cliente"+ "\n\n" + this.cliente.toString() + "\n" + "                 Equipamento" + "\n\n" + this.equipamento.toString() + "\n" + "Características do Defeito: \n" + this.getCaracteristicasDoDefeito() + "\n\n" + "Técnico Responsável" + "\n"  + this.tecnico.toString() + "\n\n" + "Relatório de Manutenção" + "\n" + this.relatorio + "\n\n";
 	}
 
 	public String toStringPrioridades() {
-		return "Cliente: " + "  " + "OS no: " + "Data de Abertura" + "Equipamento" + "Prioridade" + "\n" + this.cliente.getNomeCompleto() + "  " + this.numero + "  " + this.dataEntrada + "  " + this.equipamento.getTipo() + "  " + this.prioridade; 
+		return "Cliente: " + "  " + "OS no: " + "Data de Abertura" + "Equipamento" + "Prioridade" + "\n" + this.cliente.getPrimeiroNome() + this.cliente.getSegundoNome() + "  " + this.numero + "  " + this.dataEntrada + "  " + this.equipamento.getTipo() + "  " + this.prioridade; 
 	}
 
 	public String toStringResumo() {
 
-		String resultado = String.format("%7s %5s\n", "OS no: ", this.numero);
-		resultado += String.format("%6s %10s\n", "Data: ", this.dataEntrada);
-		resultado += String.format("%6s %10s\n", "Cliente: ", this.cliente.getNomeCompleto());
-		resultado += String.format("%6s %10s\n", "Equip: ", this.equipamento.getTipo());
-		resultado += String.format("%6s %10s", "Defeito: ", this.getCaracDefeito());
+		String resultado = String.format("%7s %5s ", "OS no: ", this.numero);
+		resultado += String.format("%6s %10s ", "Data: ", this.dataEntrada);
+		resultado += String.format("%6s %10s ", "Cliente: ", this.cliente.getPrimeiroNome() + this.cliente.getSegundoNome());
+		resultado += String.format("%6s %10s ", "Equip: ", this.equipamento.getTipo());
+		resultado += String.format("%6s %10s", "Defeito: ", this.getCaracteristicasDoDefeito());
 
 		return resultado;
 	}
@@ -139,7 +139,7 @@ public class Ordem {
 	 * */
 	public String toStringTabela() {
 		String resultado = "************************************\n";
-		resultado += String.format("%16s %15s\n","OS no", "Cliente");
+		resultado += String.format("%6s %7s\n","OS no", "Cliente");
 		resultado += "************************************\n";
 		//return "OS no: " +"\n"+ this.numero + "Cliente: " +  this.cliente.getNomeCompleto() + "\n" + "Equipamento: " + this.equipamento.getTipo() + "\n" + "Série: " + this.equipamento.getNumeroSerie() +"\n" + "-------------------------------------------------------------------";
 		return resultado;

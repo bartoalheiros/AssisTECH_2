@@ -27,14 +27,11 @@ public class Programa {
 			System.out.println("6 - Buscar Equipamento\n");
 			System.out.println("7 - Nova Ordem\n");
 			System.out.println("8 - Buscar Ordem\n");
-			System.out.println("9 - Sair\n\n");
+			System.out.println("9 - Listar Ordens\n");
+			System.out.println("10 - Sair\n\n");
 			System.out.println("Opção: "); 
 
-			/*if(entrada > 9 || entrada == 0) {
-				System.out.println("Opção inválida!");
-			}*/
-
-
+			
 			try{	
 				entrada = sc.nextInt(); 
 			}catch(Exception e) {
@@ -44,7 +41,7 @@ public class Programa {
 
 			menuTextual.menuPrincipal(entrada);
 
-		}while(entrada < 9 || entrada == 0);
+		}while(entrada < 10 || entrada == 0);
 
 		System.out.println("Obrigado por utilizar AssisTech!!");
 		sc.close();

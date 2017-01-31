@@ -5,8 +5,8 @@ public class Cliente extends Usuario {
 	private String cpf;
 
 
-	public Cliente(String cpf, String nomeCompleto, String endereco, String telefone, String email, int numOrdens) {
-		super(nomeCompleto, email, telefone, endereco, numOrdens);
+	public Cliente(String cpf, String primeiroNome,String segundoNome, String endereco, String telefone, String email, int numOrdens) {
+		super(primeiroNome, segundoNome, email, telefone, endereco, numOrdens);
 		this.cpf = cpf;
 	}
 
@@ -31,7 +31,7 @@ public class Cliente extends Usuario {
 	}
 
 	public static void main(String[] args) {
-		Cliente c1 = new Cliente("032890098-78", "João da Silva Júnior", "Rua Leão Coroado, 109, Jardim Brasil, Olinda - PE", "3729-0452", "joao_da_silva_37@yahoo.com.br", 12);
+		Cliente c1 = new Cliente("032890098-78", "João", "da Silva Júnior", "Rua Leão Coroado, 109, Jardim Brasil, Olinda - PE", "3729-0452", "joao_da_silva_37@yahoo.com.br", 12);
 
 		System.out.println(c1);
 

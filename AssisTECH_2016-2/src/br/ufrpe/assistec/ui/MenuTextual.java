@@ -317,7 +317,7 @@ public class MenuTextual {
 		
 		System.out.println("Digite as características do defeito(resumido)");
 		var = sc.nextLine();
-		ordem.setCaracDefeito(var);
+		ordem.setCaracteristicasDoDefeito(var);
 		
 		do{
 			
