@@ -19,7 +19,7 @@ public class Demo {
 		Ordem os = new Ordem();
 
 		//Criando, preenchendo cadastro de cliente e salvando em seu repositório
-		Cliente cli = new Cliente("032401127-59", "José Padilha Almeida Caetano", "Rua das Flores, Nova Atalaia, 701, São Paulo - SP", "3437-4132", "josepad27@yahoo.com.br", 0);
+		Cliente cli = new Cliente("032401127-59", "José Padilha Almeida Caetano", "Rua das Flores, Nova Atalaia, 701, São Paulo - SP", "3437-4132", "josepad27@yahoo.com.br", null, 0);
 		cli.aumentarNumOrdens();
 		servidor.cadastrarCliente(cli);
 

@@ -232,11 +232,17 @@ public class MenuTextual {
 		//Criando um cliente, utilizando o Construtor que tem como parâmetro a String cpf.
 		Cliente cli = new Cliente(var);
 
-		System.out.println("Digite o nome: ");
+		System.out.println("Digite o primeiro nome: ");
 		var = sc.nextLine();
 		sc.nextLine(); //Limpa o buffer do teclado
 
-		cli.setNomeCompleto(var);
+		cli.setPrimeiroNome(var);
+		
+		System.out.println("Digite o segundo nome: ");
+		var = sc.nextLine();
+		sc.nextLine(); //Limpa o buffer do teclado
+
+		cli.setSegundoNome(var);
 
 		System.out.println("Endereço: ");
 		var = sc.nextLine();
@@ -504,6 +510,7 @@ public class MenuTextual {
 
 		try {
 			servidor.cadastrarEquipamento(equipamento);
+			System.out.println("Equipamento Cadastrado com Sucesso.");
 		}catch(EquipamentoExisteException e) {
 			System.out.println(e.getMessage());
 		}
@@ -513,18 +520,24 @@ public class MenuTextual {
 		
 		String var = null;
 
-		System.out.println("Digite o cpf do tecnico: ");
+		System.out.println("Digite a matrícula do tecnico: ");
 		var = sc.nextLine();
 		sc.nextLine(); //Limpa o buffer do teclado
 
 		//Criando um tecnico, utilizando o Construtor que tem como parâmetro a String matrícula.
 		Usuario tec = new Tecnico(var);
 
-		System.out.println("Digite o nome: ");
+		System.out.println("Digite o primeiro nome: ");
 		var = sc.nextLine();
 		sc.nextLine(); //Limpa o buffer do teclado
 
-		tec.setNomeCompleto(var);
+		tec.setPrimeiroNome(var);
+		
+		System.out.println("Digite o segundo nome: ");
+		var = sc.nextLine();
+		sc.nextLine(); //Limpa o buffer do teclado
+
+		tec.setSegundoNome(var);
 
 		System.out.println("Endereço: ");
 		var = sc.nextLine();

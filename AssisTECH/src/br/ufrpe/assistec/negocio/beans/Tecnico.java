@@ -27,4 +27,9 @@ public class Tecnico extends Usuario {
 
 		return resultado;
 	}
+
+	public void setNomeCompleto(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 }
