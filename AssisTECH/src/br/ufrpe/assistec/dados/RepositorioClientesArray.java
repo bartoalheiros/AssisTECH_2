@@ -16,7 +16,7 @@ public class RepositorioClientesArray implements IRepositorioClientes {
 		this.proximo++;
 	}
 
-	public Cliente buscar(String cpf) {
+	public Cliente buscaPorCpf(String cpf) {
 		Cliente cliente = null;
 		for(int i = 0; i < this.proximo; i++) {
 			if( cpf.equals( this.clientes[i].getCpf() ) ) {

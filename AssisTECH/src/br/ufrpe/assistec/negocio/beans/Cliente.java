@@ -1,6 +1,6 @@
 package br.ufrpe.assistec.negocio.beans;
 
-public class Cliente extends Usuario {
+public class Cliente extends Usuario implements Comparable<Cliente>{
 
 	private String cpf;
 
@@ -21,6 +21,14 @@ public class Cliente extends Usuario {
 	public String getCpf() {
 		return this.cpf;
 	}
+	
+	public String getNomeCompleto() {
+		return this.primeiroNome + " " + this.segundoNome;
+	}
+	
+	/*public boolean equals(Cliente cli) {
+		if(this.cpf.equals(anObject))
+	}*/
 
 	public String toString() {
 		String resultado = String.format("%5s %5s\n", "cpf: ", this.cpf);
@@ -35,6 +43,12 @@ public class Cliente extends Usuario {
 
 		System.out.println(c1);
 
+	}
+
+	@Override
+	public int compareTo(Cliente cli) {
+		
+		return this.getNomeCompleto().compareTo(cli.getNomeCompleto());
 	}
 
 }
