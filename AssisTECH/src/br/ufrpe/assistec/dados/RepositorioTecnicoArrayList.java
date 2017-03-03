@@ -31,21 +31,28 @@ public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
 		return tecnico;
 	}
 
-	@Override
-	public List<Tecnico> listar() {
-		
+	public List<Tecnico> listarTodos() {
+		return this.listaTecnicos;
 
 	}
 
 	@Override
-	public void remover(String matricula) {
-		// TODO Auto-generated method stub
-
+	public boolean remover(String matricula) {
+		Tecnico tecnico = null;
+		boolean r = false;
+		
+		for(Tecnico tec: this.listaTecnicos) {
+			if(tec.getMatricula().equals(matricula)) {
+				tecnico = tec;
+				r = true;
+			}
+		}
+		return r;
 	}
 
 	@Override
 	public void atualizar(Tecnico tec) {
-		// TODO Auto-generated method stub
+		
 
 	}
 

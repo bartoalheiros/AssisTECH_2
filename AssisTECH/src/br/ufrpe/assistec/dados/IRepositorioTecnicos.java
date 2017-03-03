@@ -8,9 +8,9 @@ public interface IRepositorioTecnicos {
 	
 	public Tecnico buscar(String mat);
 	
-	public void listar();
+	//public void listar();
 
-	public void remover(String matricula);
+	public boolean remover(String matricula);
 	
 	public void atualizar(Tecnico tec);
 	
