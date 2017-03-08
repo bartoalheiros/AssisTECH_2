@@ -1,6 +1,8 @@
 package br.ufrpe.assistec.negocio.beans;
 
-public class Cliente extends Usuario implements Comparable<Cliente>{
+import java.io.Serializable;
+
+public class Cliente extends Usuario implements Comparable<Cliente>, Serializable{
 
 	private String cpf;
 
