@@ -6,13 +6,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import br.ufrpe.assistec.negocio.beans.Cliente;
 
-public class RepositorioClientesArrayList implements IRepositorioClientes{
+public class RepositorioClientesArrayList implements IRepositorioClientes, Serializable{
 	private List<Cliente> listaClientes = null;
 	private static RepositorioClientesArrayList instance;
 	
@@ -20,7 +21,7 @@ public class RepositorioClientesArrayList implements IRepositorioClientes{
 		this.listaClientes = new ArrayList(); 
 	}
 	
-	public static IRepositorioClientes getInstance() {
+	public static RepositorioClientesArrayList getInstance() {
 		if(instance == null) {
 			 instance = lerDoArquivo();
 		}
@@ -31,6 +32,7 @@ public class RepositorioClientesArrayList implements IRepositorioClientes{
 	@Override
 	public void cadastrar(Cliente cliente) {
 		this.listaClientes.add(cliente);
+		this.salvarArquivo();
 		
 	}
 
@@ -61,7 +63,7 @@ public class RepositorioClientesArrayList implements IRepositorioClientes{
 	private static RepositorioClientesArrayList lerDoArquivo() {
         RepositorioClientesArrayList instanciaLocal = null;
 
-        File in = new File("contas.dat");
+        File in = new File("clientes.dat");
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
@@ -87,7 +89,7 @@ public class RepositorioClientesArrayList implements IRepositorioClientes{
 	        if (instance == null) {
 	            return;
 	        }
-	        File out = new File("contas.dat");
+	        File out = new File("clientes.dat");
 	        FileOutputStream fos = null;
 	        ObjectOutputStream oos = null;
 	        
@@ -118,23 +120,32 @@ public class RepositorioClientesArrayList implements IRepositorioClientes{
 	}
 	
 	public static void main(String[] args) {
+		
+		RepositorioClientesArrayList repo = RepositorioClientesArrayList.getInstance();
+		
 		Cliente cli1 = new Cliente("1234567", "João", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
 		Cliente cli2 = new Cliente("1234568", "Cláudio", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
 		Cliente cli3 = new Cliente("1234569", "Cristiano", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
 		Cliente cli4 = new Cliente("1234561", "Norma", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
 		
-		RepositorioClientesArrayList repo = new RepositorioClientesArrayList();
+		
 		
 		System.out.println("Adicionando CLientes");
 		repo.cadastrar(cli1);
 		repo.cadastrar(cli2);
 		repo.cadastrar(cli3);
 		
+		
+		
 		System.out.println("Imprimindo todos os Clientes");
 		imprimir(repo.listarTodos());
 		
 		System.out.println("Clientes em Ordem Alfabética");
 		imprimir(repo.listarTodosOrdenadosPorNome());
+		
+		
+		
+		
 	}
 	
 	public static void imprimir(List<Cliente> listaCli) {
