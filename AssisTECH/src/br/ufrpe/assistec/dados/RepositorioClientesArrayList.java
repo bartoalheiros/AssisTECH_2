@@ -31,7 +31,7 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 
 	@Override
 	public void cadastrar(Cliente cliente) {
-		this.getInstance().listaClientes.add(cliente);
+		getInstance().listaClientes.add(cliente);
 		this.salvarArquivo();
 
 	}
@@ -40,21 +40,22 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 	public Cliente buscaPorCpf(String cpf) {
 		Cliente cliente = null;
 
-		for(Cliente cli: listaClientes) {
+		for(Cliente cli: getInstance().listaClientes) {
 			if(cli.getCpf().equals(cpf)) {
 				cliente = cli;
 				break;
 			}
 		}
+		
 		return cliente;
 	}
 
 	@Override
 	public void remover(String cpf) {
 
-		for(Cliente cli: this.getInstance().listaClientes) {
+		for(Cliente cli: getInstance().listaClientes) {
 			if(cli.getCpf().equals(cpf)) {
-				this.getInstance().listaClientes.remove(cli);
+				getInstance().listaClientes.remove(cli);
 				this.salvarArquivo();
 				break;
 			}

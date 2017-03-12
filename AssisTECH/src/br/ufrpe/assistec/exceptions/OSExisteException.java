@@ -1,4 +1,4 @@
-package br.ufrpe.assistec.negocio;
+package br.ufrpe.assistec.exceptions;
 
 public class OSExisteException extends Exception{
 	public OSExisteException(String numero) {

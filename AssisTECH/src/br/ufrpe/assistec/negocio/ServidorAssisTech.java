@@ -1,11 +1,14 @@
 package br.ufrpe.assistec.negocio;
 /*Fachada: serve para as classes de UI do sistema terem acesso a todas as funcionalidades do mesmo.*/
 
+import java.util.List;
+
 import br.ufrpe.assistec.negocio.beans.Cliente;
 import br.ufrpe.assistec.negocio.beans.Equipamento;
 import br.ufrpe.assistec.negocio.beans.Ordem;
 import br.ufrpe.assistec.negocio.beans.Tecnico;
 import br.ufrpe.assistec.negocio.beans.Usuario;
+import br.ufrpe.assistec.exceptions.*;
 
 public class ServidorAssisTech {
 	private ControladorClientes clientes;
@@ -56,8 +59,8 @@ public class ServidorAssisTech {
 		clientes.alterar(c);
 	}
 
-	public void listarClientes() {
-		clientes.listar();
+	public List<Cliente> listarClientes() {
+		return clientes.listar();
 	}
 
 	public boolean existeTecnico(Tecnico tecnico) {

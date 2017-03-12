@@ -1,4 +1,4 @@
-package br.ufrpe.assistec.negocio;
+package br.ufrpe.assistec.exceptions;
 
 public class EquipamentoEmServicoException extends Exception{
 	private String numSerie;

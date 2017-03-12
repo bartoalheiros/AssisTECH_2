@@ -1,14 +1,18 @@
 package br.ufrpe.assistec.negocio;
 
+import java.util.List;
+
 import br.ufrpe.assistec.dados.IRepositorioClientes;
 import br.ufrpe.assistec.dados.RepositorioClientesArray;
+import br.ufrpe.assistec.dados.RepositorioClientesArrayList;
+import br.ufrpe.assistec.exceptions.*;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 
 public class ControladorClientes {
 	private IRepositorioClientes repositorio;
 
 	public ControladorClientes() {
-		this.repositorio = new RepositorioClientesArray();
+		this.repositorio = RepositorioClientesArrayList.getInstance();
 	}
 
 	public boolean existe(Cliente c) {
@@ -32,7 +36,7 @@ public class ControladorClientes {
 	}
 
 	public Cliente buscar(String cpf) throws ClienteNaoCadastradoException {
-		Cliente cli = this.repositorio.buscar(cpf);
+		Cliente cli = ((RepositorioClientesArrayList)this.repositorio).buscaPorCpf(cpf);
 
 		if(cli == null) {
 			throw new ClienteNaoCadastradoException(cpf);
@@ -58,8 +62,8 @@ public class ControladorClientes {
 		}
 	}
 
-	public void listar() { 
-		((RepositorioClientesArray)this.repositorio).listar();
+	public List<Cliente> listar() { 
+		return ((RepositorioClientesArrayList)this.repositorio).listarTodos();
 	}
 
 

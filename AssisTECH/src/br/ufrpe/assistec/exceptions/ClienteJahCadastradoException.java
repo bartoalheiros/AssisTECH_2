@@ -1,6 +1,6 @@
 /*Levantada caso um cliente for ser adicionado ao sistema. Mas o cpf dele já consta no Sistema.*/
 
-package br.ufrpe.assistec.negocio;
+package br.ufrpe.assistec.exceptions;
 
 public class ClienteJahCadastradoException extends Exception{
 	private String cpf;

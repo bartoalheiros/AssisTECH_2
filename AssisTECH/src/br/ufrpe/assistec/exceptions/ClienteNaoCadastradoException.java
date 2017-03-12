@@ -1,6 +1,6 @@
 /*Levantada quando um Cliente for ser alterado, mas ele não está cadastrado no sistema.*/
 
-package br.ufrpe.assistec.negocio;
+package br.ufrpe.assistec.exceptions;
 
 public class ClienteNaoCadastradoException extends Exception {
 

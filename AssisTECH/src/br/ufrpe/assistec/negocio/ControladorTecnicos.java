@@ -3,6 +3,7 @@ package br.ufrpe.assistec.negocio;
 import br.ufrpe.assistec.dados.IRepositorioTecnicos;
 import br.ufrpe.assistec.dados.RepositorioTecnicosArray;
 import br.ufrpe.assistec.negocio.beans.Tecnico;
+import br.ufrpe.assistec.exceptions.*;
 
 public class ControladorTecnicos {
 	private IRepositorioTecnicos repositorio;

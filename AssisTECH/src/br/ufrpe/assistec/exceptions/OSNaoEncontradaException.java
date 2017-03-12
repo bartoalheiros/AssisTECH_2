@@ -1,6 +1,6 @@
 /*Levantada quando o número de OS o qual está se buscando não for encontrado no sistema.*/
 
-package br.ufrpe.assistec.negocio;
+package br.ufrpe.assistec.exceptions;
 
 public class OSNaoEncontradaException extends Exception {
 	public OSNaoEncontradaException(String numero){
