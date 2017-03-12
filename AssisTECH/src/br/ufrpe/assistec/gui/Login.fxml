@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane prefHeight="300.0" prefWidth="284.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <center>
+      <AnchorPane prefHeight="219.0" prefWidth="214.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField layoutX="53.0" layoutY="78.0" prefHeight="25.0" prefWidth="181.0" />
+            <TextField layoutX="51.0" layoutY="167.0" prefHeight="25.0" prefWidth="186.0" />
+            <Label layoutX="53.0" layoutY="55.0" text="Nome de Usuário" />
+            <Label layoutX="53.0" layoutY="142.0" text="Senha" />
+            <Button layoutX="78.0" layoutY="219.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="117.0" text="Acessar" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -1,4 +1,4 @@
-package br.ufrpe.assistec.ui;
+package br.ufrpe.assistec.gui.console;
 
 import br.ufrpe.assistec.negocio.EquipamentoEmServicoException;
 import br.ufrpe.assistec.negocio.OSExisteException;
