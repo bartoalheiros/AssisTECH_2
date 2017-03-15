@@ -10,7 +10,7 @@ public interface IRepositorioTecnicos {
 	
 	//public void listar();
 
-	public boolean remover(String matricula);
+	public void remover(String matricula);
 	
 	public void atualizar(Tecnico tec);
 	

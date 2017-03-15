@@ -1,8 +1,7 @@
 
 package br.ufrpe.assistec.dados;
 
-import br.ufrpe.assistec.negocio.EquipamentoEmServicoException;
-import br.ufrpe.assistec.negocio.OSExisteException;
+import br.ufrpe.assistec.exceptions.EquipamentoEmServicoException;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 import br.ufrpe.assistec.negocio.beans.Equipamento;
 import br.ufrpe.assistec.negocio.beans.Ordem;

@@ -44,6 +44,15 @@ public class ControladorClientes {
 
 		return cli;
 	}
+	
+	public void buscarPorLogin(String usrName, String passwd) throws NomeDeUsuarioOuSenhaInvalidaException {
+		boolean resultado =  ((RepositorioClientesArrayList)this.repositorio).buscarPorLogin(usrName, passwd);
+		
+		if(resultado == false) {
+			throw new NomeDeUsuarioOuSenhaInvalidaException();
+		}	
+		
+	}
 
 	public void alterar (Cliente c) throws ClienteNaoCadastradoException {
 		if(this.existe(c)){

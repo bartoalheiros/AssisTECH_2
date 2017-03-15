@@ -50,6 +50,17 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 		return cliente;
 	}
 
+	public boolean buscarPorLogin(String usrName, String pswd) {
+
+		for(Cliente cli: getInstance().listaClientes) {
+			if(cli.getUsrName().equals(usrName) && cli.getPasswrd().equals(pswd)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	@Override
 	public void remover(String cpf) {
 
@@ -136,10 +147,10 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 
 		RepositorioClientesArrayList repo = RepositorioClientesArrayList.getInstance();
 
-		Cliente cli1 = new Cliente("1234567", "João", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
-		Cliente cli2 = new Cliente("1234568", "Cláudio", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
-		Cliente cli3 = new Cliente("1234569", "Cristiano", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
-		Cliente cli4 = new Cliente("1234561", "Norma", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
+		Cliente cli1 = new Cliente("JoaoSilva", "12791", "1234567", "João", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
+		Cliente cli2 = new Cliente("Claudio", "123", "1234568", "Cláudio", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
+		Cliente cli3 = new Cliente("CSilva", "456", "1234569", "Cristiano", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
+		Cliente cli4 = new Cliente("NSilva", "321", "1234561", "Norma", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
 
 
 

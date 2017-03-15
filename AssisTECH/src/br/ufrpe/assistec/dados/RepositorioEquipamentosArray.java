@@ -1,6 +1,6 @@
 package br.ufrpe.assistec.dados;
 
-import br.ufrpe.assistec.negocio.EquipamentoNaoExisteException;
+import br.ufrpe.assistec.exceptions.EquipamentoNaoExisteException;
 import br.ufrpe.assistec.negocio.beans.Equipamento;
 
 public class RepositorioEquipamentosArray implements IRepositorioEquipamentos{

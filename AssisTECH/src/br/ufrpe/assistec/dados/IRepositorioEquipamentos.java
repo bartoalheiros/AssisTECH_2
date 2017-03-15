@@ -1,6 +1,6 @@
 package br.ufrpe.assistec.dados;
 
-import br.ufrpe.assistec.negocio.EquipamentoNaoExisteException;
+import br.ufrpe.assistec.exceptions.EquipamentoNaoExisteException;
 import br.ufrpe.assistec.negocio.beans.Equipamento;
 
 public interface IRepositorioEquipamentos {
@@ -8,7 +8,7 @@ public interface IRepositorioEquipamentos {
 	
 	public void listar();
 	
-	public void remover(String numSerie) throws EquipamentoNaoExisteException;
+	public void remover(String numSerie) throws EquipamentoNaoExisteException, br.ufrpe.assistec.exceptions.EquipamentoNaoExisteException;
 	
 	public Equipamento buscar(String numSerie);
 	

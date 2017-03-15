@@ -7,8 +7,8 @@ public class Cliente extends Usuario implements Comparable<Cliente>, Serializabl
 	private String cpf;
 
 
-	public Cliente(String cpf, String primeiroNome,String segundoNome, String endereco, String telefone, String email, int numOrdens) {
-		super(primeiroNome, segundoNome, email, telefone, endereco, numOrdens);
+	public Cliente(String usrName, String psswd, String cpf, String primeiroNome,String segundoNome, String endereco, String telefone, String email, int numOrdens) {
+		super(usrName, psswd, primeiroNome, segundoNome, email, telefone, endereco, numOrdens);
 		this.cpf = cpf;
 	}
 

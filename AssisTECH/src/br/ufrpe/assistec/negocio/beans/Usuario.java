@@ -9,10 +9,15 @@ public class Usuario implements Serializable{
 	protected String telefone;
 	protected String endereco;
 	protected int numOrdens;
+	protected String usrName;
+	protected String passwrd;
 
-	public Usuario(String primeiroNome, String segundoNome, String email, String telefone, String endereco, int numOrdens) {
+	
+	public Usuario(String usrName, String psswrd, String primeiroNome, String segundoNome, String email, String telefone, String endereco, int numOrdens) {
 		this.setPrimeiroNome(primeiroNome);
 		this.setSegundoNome(segundoNome);
+		this.setUsrName(usrName);
+		this.setPasswrd(psswrd);
 		this.email = email;
 		this.telefone = telefone;
 		this.numOrdens = numOrdens;
@@ -23,7 +28,21 @@ public class Usuario implements Serializable{
 
 	}
 	
-	
+	public String getUsrName() {
+		return usrName;
+	}
+
+	public void setUsrName(String usrName) {
+		this.usrName = usrName;
+	}
+
+	public String getPasswrd() {
+		return passwrd;
+	}
+
+	public void setPasswrd(String passwrd) {
+		this.passwrd = passwrd;
+	}
 
 	public String getSegundoNome() {
 		return segundoNome;

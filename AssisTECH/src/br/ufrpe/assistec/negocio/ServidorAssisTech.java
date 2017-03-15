@@ -50,6 +50,10 @@ public class ServidorAssisTech {
 	public Cliente buscarCliente(String cpf) throws ClienteNaoCadastradoException {
 		return clientes.buscar(cpf);
 	}
+	
+	public void buscarClientePorLogin(String usrName, String passwd) throws NomeDeUsuarioOuSenhaInvalidaException {
+		clientes.buscarPorLogin(usrName, passwd);
+	} 
 
 	public void removerCliente(String cpf) throws ClienteNaoCadastradoException { 
 		clientes.remover(cpf);
