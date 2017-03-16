@@ -18,6 +18,14 @@ public class Tecnico extends Usuario {
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
+	
+	public boolean equals(Tecnico tec) {
+		if(tec.getMatricula().equals(this.getMatricula())) {
+			return true;
+		}
+		
+		return false;
+	}
 
 	public String toString() {
 		String resultado = String.format("%5s %5s\n", "Nome: ", this.primeiroNome + this.segundoNome);
