@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import br.ufrpe.assistec.exceptions.ClienteJahCadastradoException;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 
 public class RepositorioClientesArrayList implements IRepositorioClientes, Serializable{
@@ -30,10 +31,25 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 	}
 
 	@Override
-	public void cadastrar(Cliente cliente) {
-		getInstance().listaClientes.add(cliente);
-		this.salvarArquivo();
+	public boolean cadastrar(Cliente cliente) {
+		if(!getInstance().existe(cliente)){
+			getInstance().listaClientes.add(cliente);
+			this.salvarArquivo();
+			return false;
+		}else {
+			return true;
+		}
 
+	}
+	
+	public boolean existe(Cliente cliente) {
+		for(Cliente cli: getInstance().listaClientes) {
+			if(cliente.getCpf().equals(cli.getCpf())) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 	@Override

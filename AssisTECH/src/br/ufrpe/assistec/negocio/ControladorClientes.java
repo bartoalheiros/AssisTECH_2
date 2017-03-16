@@ -16,7 +16,7 @@ public class ControladorClientes {
 	}
 
 	public boolean existe(Cliente c) {
-		boolean resultado = ((RepositorioClientesArray)this.repositorio).existe(c);
+		boolean resultado = ((RepositorioClientesArrayList)this.repositorio).existe(c);
 
 		return resultado;
 	}

@@ -11,19 +11,10 @@
          <children>
             <MenuBar layoutY="-1.0" prefHeight="31.0" prefWidth="421.0">
               <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu mnemonicParsing="false" text="Cadastrar">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem fx:id="novoCliente" mnemonicParsing="false" onAction="#cadastrar" text="Novo Cliente" />
+                        <MenuItem mnemonicParsing="false" text="Novo Técnico" />
                   </items>
                 </Menu>
               </menus>
