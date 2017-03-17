@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="424.0" prefWidth="301.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.assistec.gui.LoginController">
+<BorderPane prefHeight="383.0" prefWidth="301.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.assistec.gui.LoginController">
    <center>
-      <AnchorPane prefHeight="409.0" prefWidth="313.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="411.0" prefWidth="301.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txtUserName" layoutX="53.0" layoutY="78.0" prefHeight="25.0" prefWidth="181.0" />
+            <ImageView fitHeight="460.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Pictures/assistech2.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtUserName" layoutX="53.0" layoutY="98.0" prefHeight="25.0" prefWidth="181.0" />
             <TextField fx:id="txtPassWord" layoutX="51.0" layoutY="167.0" prefHeight="25.0" prefWidth="186.0" />
-            <Label layoutX="53.0" layoutY="55.0" text="Nome de Usuário" />
-            <Label layoutX="53.0" layoutY="142.0" text="Senha" />
-            <Button fx:id="btnAcessar" layoutX="85.0" layoutY="281.0" mnemonicParsing="false" onAction="#ckLoginData" prefHeight="29.0" prefWidth="117.0" text="Acessar" />
-            <ComboBox fx:id="privilegio" layoutX="76.0" layoutY="227.0" prefWidth="150.0" promptText="Selecione uma opçao" />
+            <Label layoutX="53.0" layoutY="73.0" text="Nome de Usuário" textFill="WHITE" />
+            <Label layoutX="53.0" layoutY="144.0" text="Senha" textFill="WHITE" />
+            <Button fx:id="btnAcessar" layoutX="92.0" layoutY="285.0" mnemonicParsing="false" onAction="#ckLoginData" prefHeight="29.0" prefWidth="117.0" text="Acessar" />
+            <ComboBox fx:id="privilegio" layoutX="67.0" layoutY="227.0" prefHeight="25.0" prefWidth="163.0" promptText="Selecione uma opçao" />
          </children>
       </AnchorPane>
    </center>
