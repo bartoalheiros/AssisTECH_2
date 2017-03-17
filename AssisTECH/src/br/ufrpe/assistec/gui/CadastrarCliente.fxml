@@ -1,32 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.assistec.gui.CadastrarClienteController">
-   <bottom>
+   <top>
       <AnchorPane prefHeight="729.0" prefWidth="598.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txtNome" layoutX="118.0" layoutY="59.0" prefHeight="25.0" prefWidth="421.0" />
-            <TextField fx:id="txtSobreNome" layoutX="120.0" layoutY="113.0" prefHeight="25.0" prefWidth="419.0" />
-            <TextField fx:id="txtCpf" layoutX="119.0" layoutY="176.0" prefHeight="25.0" prefWidth="324.0" />
-            <Label layoutX="14.0" layoutY="63.0" prefHeight="17.0" prefWidth="69.0" text="Nome :" />
-            <Label layoutX="14.0" layoutY="117.0" text="Sobrenome :" />
-            <Label layoutX="19.0" layoutY="180.0" text="Cpf :" />
-            <TextField fx:id="txtEndereco" layoutX="120.0" layoutY="245.0" prefHeight="25.0" prefWidth="419.0" />
-            <Label layoutX="16.0" layoutY="249.0" text="Endereço :" />
-            <TextField fx:id="txtTelefone" layoutX="119.0" layoutY="333.0" prefHeight="25.0" prefWidth="220.0" />
-            <Label layoutX="13.0" layoutY="337.0" text="Telefone :" />
-            <TextField fx:id="txtEmail" layoutX="120.0" layoutY="419.0" prefHeight="25.0" prefWidth="326.0" />
-            <Label layoutX="19.0" layoutY="423.0" text="E-mail :" />
-            <Button fx:id="btnCadastrar" layoutX="229.0" layoutY="650.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="25.0" prefWidth="94.0" text="Cadastrar" />
-            <TextField fx:id="txtLogin" layoutX="120.0" layoutY="491.0" />
-            <TextField fx:id="txtSenha" layoutX="118.0" layoutY="551.0" />
-            <Label layoutX="18.0" layoutY="495.0" text="Login :" />
-            <Label layoutX="18.0" layoutY="555.0" text="Senha :" />
+            <TextField fx:id="txtNome" layoutX="119.0" layoutY="98.0" prefHeight="25.0" prefWidth="421.0" />
+            <TextField fx:id="txtSobreNome" layoutX="120.0" layoutY="156.0" prefHeight="25.0" prefWidth="419.0" />
+            <TextField fx:id="txtCpf" layoutX="119.0" layoutY="215.0" prefHeight="25.0" prefWidth="324.0" />
+            <Label layoutX="14.0" layoutY="98.0" prefHeight="17.0" prefWidth="69.0" text="Nome :">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="14.0" layoutY="156.0" text="Sobrenome :">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="17.0" layoutY="215.0" text="Cpf :">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <TextField fx:id="txtEndereco" layoutX="119.0" layoutY="280.0" prefHeight="25.0" prefWidth="419.0" />
+            <Label layoutX="12.0" layoutY="280.0" text="Endereço :">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <TextField fx:id="txtTelefone" layoutX="121.0" layoutY="351.0" prefHeight="25.0" prefWidth="220.0" />
+            <Label layoutX="14.0" layoutY="351.0" text="Telefone :">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <TextField fx:id="txtEmail" layoutX="119.0" layoutY="449.0" prefHeight="25.0" prefWidth="326.0" />
+            <Label layoutX="14.0" layoutY="449.0" text="E-mail :">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Button fx:id="btnCadastrar" layoutX="242.0" layoutY="652.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="37.0" prefWidth="114.0" text="Cadastrar" />
+            <TextField fx:id="txtLogin" layoutX="121.0" layoutY="512.0" />
+            <TextField fx:id="txtSenha" layoutX="121.0" layoutY="585.0" />
+            <Label layoutX="16.0" layoutY="516.0" text="Login :">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="18.0" layoutY="587.0" text="Senha :">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="184.0" layoutY="7.0" prefHeight="42.0" prefWidth="214.0" text="Cadastro de cliente">
+               <font>
+                  <Font name="Agency FB" size="34.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-   </bottom>
+   </top>
 </BorderPane>
