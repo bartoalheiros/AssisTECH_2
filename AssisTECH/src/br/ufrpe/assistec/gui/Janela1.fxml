@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="319.0" prefWidth="421.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.assistec.gui.Janela1Controller">
+<BorderPane prefHeight="640.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.assistec.gui.Janela1Controller">
    <center>
       <AnchorPane prefHeight="130.0" prefWidth="362.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar layoutY="-1.0" prefHeight="31.0" prefWidth="421.0">
+            <MenuBar layoutY="-1.0" prefHeight="31.0" prefWidth="1280.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Cadastrar">
                   <items>
