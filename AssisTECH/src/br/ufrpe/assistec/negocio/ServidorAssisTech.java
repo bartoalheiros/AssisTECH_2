@@ -62,7 +62,7 @@ public class ServidorAssisTech {
 		return clientes.listar();
 	}
 	
-	public void cadastrarTecnico(Tecnico tecnico) {
+	public void cadastrarTecnico(Tecnico tecnico) throws TecnicoJahExisteException {
 		tecnicos.cadastrar(tecnico);
 	}
 

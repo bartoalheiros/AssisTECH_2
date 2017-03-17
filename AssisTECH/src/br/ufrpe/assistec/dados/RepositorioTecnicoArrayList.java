@@ -40,15 +40,15 @@ public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
 	
 	@Override
 	public boolean cadastrar(Tecnico tecnico) {
-		if(getInstance().listaTecnicos.contains(tecnico)) { 
-			return true;
+		if(getInstance().existe(tecnico)) { 
+			return false;
 		}else {
 			getInstance().listaTecnicos.add(tecnico);
 			this.salvarArquivo();
 		}
 		
 		
-		return false;
+		return true;
 
 	}
 

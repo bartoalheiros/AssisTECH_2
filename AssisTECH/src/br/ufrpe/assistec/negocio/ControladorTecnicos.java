@@ -31,8 +31,10 @@ public class ControladorTecnicos {
 		return tec;
 	}
 
-	public void cadastrar(Tecnico tecnico) {
-		this.repositorio.cadastrar(tecnico);
+	public void cadastrar(Tecnico tecnico) throws TecnicoJahExisteException {
+		if(!this.repositorio.cadastrar(tecnico)) {
+			throw new TecnicoJahExisteException(tecnico.getMatricula(), tecnico.getNomeCompleto());
+		}
 	}
 
 	public List<Tecnico> listar() { 

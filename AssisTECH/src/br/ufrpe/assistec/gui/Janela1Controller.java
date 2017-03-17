@@ -11,14 +11,24 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 public class Janela1Controller {
-	@FXML private MenuItem novoCliente;
+	@FXML private MenuItem cadastrarCliente;
+	@FXML private MenuItem cadastrarTecnico;
 	
-	@FXML public void cadastrar(ActionEvent event) throws IOException {
+	@FXML public void cadastrarCliente(ActionEvent event) throws IOException {
 		Parent parent = FXMLLoader.load(getClass().getResource("CadastrarCliente.fxml"));
 		Stage stage = new Stage();
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
 		stage.setTitle("Cadastrar Cliente");
+		stage.show();
+	}
+	
+	@FXML public void cadastrarTecnico(ActionEvent event) throws IOException {
+		Parent parent = FXMLLoader.load(getClass().getResource("CadastrarTecnico.fxml"));
+		Stage stage = new Stage();
+		Scene scene = new Scene(parent);
+		stage.setScene(scene);
+		stage.setTitle("Cadastrar Técnico");
 		stage.show();
 	}
 }

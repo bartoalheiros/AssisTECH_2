@@ -13,8 +13,8 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Cadastrar">
                   <items>
-                    <MenuItem fx:id="novoCliente" mnemonicParsing="false" onAction="#cadastrar" text="Novo Cliente" />
-                        <MenuItem mnemonicParsing="false" text="Novo Técnico" />
+                    <MenuItem fx:id="cadastrarCliente" mnemonicParsing="false" onAction="#cadastrarCliente" text="Novo Cliente" />
+                        <MenuItem fx:id="cadastrarTecnico" mnemonicParsing="false" onAction="#cadastrarTecnico" text="Novo Técnico" />
                   </items>
                 </Menu>
               </menus>
