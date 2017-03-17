@@ -6,21 +6,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="383.0" prefWidth="301.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.assistec.gui.LoginController">
+<BorderPane prefHeight="426.0" prefWidth="349.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.assistec.gui.LoginController">
    <center>
-      <AnchorPane prefHeight="411.0" prefWidth="301.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="426.0" prefWidth="340.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="460.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="426.0" fitWidth="360.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../Pictures/assistech2.png" />
+                  <Image url="@../../../../../../../../Pictures/assistech3.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtUserName" layoutX="53.0" layoutY="98.0" prefHeight="25.0" prefWidth="181.0" />
-            <TextField fx:id="txtPassWord" layoutX="51.0" layoutY="167.0" prefHeight="25.0" prefWidth="186.0" />
-            <Label layoutX="53.0" layoutY="73.0" text="Nome de Usuário" textFill="WHITE" />
-            <Label layoutX="53.0" layoutY="144.0" text="Senha" textFill="WHITE" />
-            <Button fx:id="btnAcessar" layoutX="92.0" layoutY="285.0" mnemonicParsing="false" onAction="#ckLoginData" prefHeight="29.0" prefWidth="117.0" text="Acessar" />
-            <ComboBox fx:id="privilegio" layoutX="67.0" layoutY="227.0" prefHeight="25.0" prefWidth="163.0" promptText="Selecione uma opçao" />
+            <TextField fx:id="txtUserName" layoutX="89.0" layoutY="114.0" prefHeight="25.0" prefWidth="181.0" />
+            <TextField fx:id="txtPassWord" layoutX="89.0" layoutY="186.0" prefHeight="25.0" prefWidth="186.0" />
+            <Label layoutX="90.0" layoutY="88.0" text="Nome de Usuário" textFill="WHITE" />
+            <Label layoutX="90.0" layoutY="163.0" text="Senha" textFill="WHITE" />
+            <Button fx:id="btnAcessar" layoutX="119.0" layoutY="322.0" mnemonicParsing="false" onAction="#ckLoginData" prefHeight="29.0" prefWidth="117.0" text="Acessar" />
+            <ComboBox fx:id="privilegio" layoutX="99.0" layoutY="252.0" prefHeight="25.0" prefWidth="163.0" promptText="Selecione uma opçao" />
          </children>
       </AnchorPane>
    </center>
