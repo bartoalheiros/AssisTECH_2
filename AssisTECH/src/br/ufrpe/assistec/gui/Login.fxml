@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -9,12 +10,32 @@
    <center>
       <AnchorPane prefHeight="348.0" prefWidth="311.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="txtUserName" layoutX="53.0" layoutY="78.0" prefHeight="25.0" prefWidth="181.0" />
-            <TextField fx:id="txtPassWord" layoutX="51.0" layoutY="167.0" prefHeight="25.0" prefWidth="186.0" />
-            <Label layoutX="53.0" layoutY="55.0" text="Nome de Usuário" />
-            <Label layoutX="53.0" layoutY="142.0" text="Senha" />
-            <Button fx:id="btnAcessar" layoutX="85.0" layoutY="281.0" mnemonicParsing="false" onAction="#ckLoginData" prefHeight="29.0" prefWidth="117.0" text="Acessar" />
-            <ComboBox layoutX="76.0" layoutY="227.0" prefWidth="150.0" promptText="Selecione uma opçao" />
+            <TextField fx:id="txtUserName" layoutX="53.0" layoutY="102.0" prefHeight="25.0" prefWidth="181.0">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="txtPassWord" layoutX="51.0" layoutY="185.0" prefHeight="25.0" prefWidth="186.0">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Label layoutX="53.0" layoutY="63.0" text="Nome de Usuário">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="53.0" layoutY="148.0" text="Senha">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Button fx:id="btnAcessar" layoutX="85.0" layoutY="303.0" mnemonicParsing="false" onAction="#ckLoginData" prefHeight="33.0" prefWidth="123.0" text="Acessar">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <ComboBox layoutX="62.0" layoutY="240.0" prefHeight="29.0" prefWidth="164.0" promptText="Selecione uma opçao" />
+            <Label layoutX="120.0" layoutY="8.0" text="Login">
+               <font>
+                  <Font name="Agency FB" size="36.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>
