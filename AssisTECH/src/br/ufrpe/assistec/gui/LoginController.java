@@ -35,21 +35,40 @@ public class LoginController implements Initializable{
 		String usrName = new String(txtUserName.getText());
 		String pswd = new String(txtPassWord.getText());
 		
-		try {
-			svr.buscarClientePorLogin(usrName, pswd);
-			((Node)event.getSource()).getScene().getWindow().hide();
-			Parent parent = FXMLLoader.load(getClass().getResource("Janela1.fxml"));
-			Stage stage = new Stage();
-			Scene scene = new Scene(parent);
-			stage.setScene(scene);
-			stage.setTitle("AssisTech");
-			stage.show();
-		} catch (NomeDeUsuarioOuSenhaInvalidaException e) {
-			Alert err = new Alert(AlertType.ERROR);
-			err.setContentText(e.getMessage());
-			err.showAndWait();
+		if(privilegio.getValue().equals("Cliente")) {
+			try {
+				svr.buscarClientePorLogin(usrName, pswd);
+				((Node)event.getSource()).getScene().getWindow().hide();
+				Parent parent = FXMLLoader.load(getClass().getResource("Janela1.fxml"));
+				Stage stage = new Stage();
+				Scene scene = new Scene(parent);
+				stage.setScene(scene);
+				stage.setTitle("AssisTech");
+				stage.show();
+			} catch (NomeDeUsuarioOuSenhaInvalidaException e) {
+				Alert err = new Alert(AlertType.ERROR);
+				err.setContentText(e.getMessage());
+				err.showAndWait();
+			}
+		}else{
+			try {
+				svr.buscarTecnicoPorLogin(usrName, pswd);
+				((Node)event.getSource()).getScene().getWindow().hide();
+				Parent parent = FXMLLoader.load(getClass().getResource("Janela1.fxml"));
+				Stage stage = new Stage();
+				Scene scene = new Scene(parent);
+				stage.setScene(scene);
+				stage.setTitle("AssisTech");
+				stage.show();
+			} catch (NomeDeUsuarioOuSenhaInvalidaException e) {
+				Alert err = new Alert(AlertType.ERROR);
+				err.setContentText(e.getMessage());
+				err.showAndWait();
+			}
 		}
-	}
+		
+		
+	} 
 	
 	ObservableList<String> list = FXCollections.observableArrayList("Cliente", "Técnico");
 

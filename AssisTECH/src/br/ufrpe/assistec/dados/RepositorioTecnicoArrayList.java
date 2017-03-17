@@ -51,7 +51,18 @@ public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
 		return true;
 
 	}
+	
+	public boolean buscarPorLogin(String usrName, String pswd) {
 
+		for(Tecnico cli: getInstance().listaTecnicos) {
+			if(cli.getUsrName().equals(usrName) && cli.getPasswrd().equals(pswd)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	@Override
 	public Tecnico buscar(String mat) {
 		Tecnico tecnico = null;

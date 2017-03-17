@@ -114,4 +114,10 @@ public class ServidorAssisTech {
 		tecnicos.listar();
 	}
 
+
+	public void buscarTecnicoPorLogin(String usrName, String pswd) throws NomeDeUsuarioOuSenhaInvalidaException {
+		tecnicos.buscarPorLogin(usrName, pswd);
+		
+	}
+
 }
