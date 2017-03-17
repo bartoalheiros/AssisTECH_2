@@ -14,7 +14,7 @@
             <Label layoutX="53.0" layoutY="55.0" text="Nome de Usuário" />
             <Label layoutX="53.0" layoutY="142.0" text="Senha" />
             <Button fx:id="btnAcessar" layoutX="85.0" layoutY="281.0" mnemonicParsing="false" onAction="#ckLoginData" prefHeight="29.0" prefWidth="117.0" text="Acessar" />
-            <ComboBox layoutX="76.0" layoutY="227.0" prefWidth="150.0" promptText="Selecione uma opçao" />
+            <ComboBox fx:id="privilegio" layoutX="76.0" layoutY="227.0" prefWidth="150.0" promptText="Selecione uma opçao" />
          </children>
       </AnchorPane>
    </center>
