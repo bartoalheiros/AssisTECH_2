@@ -24,9 +24,6 @@ public class Cliente extends Usuario implements Comparable<Cliente>, Serializabl
 		return this.cpf;
 	}
 	
-	public String getNomeCompleto() {
-		return this.primeiroNome + " " + this.segundoNome;
-	}
 	
 	/*public boolean equals(Cliente cli) {
 		if(this.cpf.equals(anObject))

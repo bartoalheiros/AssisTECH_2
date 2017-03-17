@@ -9,11 +9,11 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufrpe.assistec.exceptions.TecnicoJahExisteException;
+import br.ufrpe.assistec.negocio.beans.Cliente;
 import br.ufrpe.assistec.negocio.beans.Tecnico;
 
 public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
-	List<Tecnico> listaTecnicos = null;
+	private List<Tecnico> listaTecnicos = null;
 	private static RepositorioTecnicoArrayList instance;
 	
 	private RepositorioTecnicoArrayList() {
@@ -28,17 +28,27 @@ public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
 		return instance;
 	}
 	
+	public boolean existe(Tecnico tecnico) {
+		for(Tecnico tec: getInstance().listaTecnicos) {
+			if(tecnico.equals(tec)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	@Override
-	public void cadastrar(Tecnico tecnico) {
+	public boolean cadastrar(Tecnico tecnico) {
 		if(getInstance().listaTecnicos.contains(tecnico)) { 
-			throw new TecnicoJahExisteException();
+			return true;
 		}else {
 			getInstance().listaTecnicos.add(tecnico);
 			this.salvarArquivo();
 		}
 		
 		
-		
+		return false;
 
 	}
 
@@ -46,7 +56,7 @@ public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
 	public Tecnico buscar(String mat) {
 		Tecnico tecnico = null;
 		
-		for(Tecnico tec: this.listaTecnicos) {
+		for(Tecnico tec: getInstance().listaTecnicos) {
 			if(tec.getMatricula().equals(mat)) {
 				tecnico = tec;
 				break;
@@ -108,22 +118,20 @@ public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
 
 	@Override
 	public boolean remover(String matricula) {
-		Tecnico tecnico = null;
-		boolean r = false;
-		
-		for(Tecnico tec: this.listaTecnicos) {
+		for(Tecnico tec: getInstance().listaTecnicos) {
 			if(tec.getMatricula().equals(matricula)) {
-				tecnico = tec;
-				r = true;
+				getInstance().listaTecnicos.remove(tec);
+				return true;
 			}
 		}
-		return r;
+		return false;
 	}
+	
 
 	@Override
-	public void atualizar(Tecnico tec) {
+	public void atualizar(Tecnico tec1, Tecnico tec2) {
 		
-
+		getInstance().listaTecnicos.set(getInstance().listaTecnicos.indexOf(tec1), tec2);
 	}
 
 }

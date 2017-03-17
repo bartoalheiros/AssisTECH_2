@@ -21,12 +21,12 @@ public class ControladorClientes {
 		return resultado;
 	}
 
-	public void cadastrar(Cliente c) throws ClienteJahCadastradoException {
-		if (c != null) {
-			if(!this.existe(c)) {
-				this.repositorio.cadastrar(c);
-			} else {
-				String cpf = c.getCpf();
+	public void cadastrar(Cliente cliente) throws ClienteJahCadastradoException {
+		boolean r = this.repositorio.cadastrar(cliente);
+
+		if (cliente != null) {
+			if(r == false) {
+				String cpf = cliente.getCpf();
 				throw new ClienteJahCadastradoException(cpf);
 			} 
 		}else {
@@ -44,14 +44,14 @@ public class ControladorClientes {
 
 		return cli;
 	}
-	
+
 	public void buscarPorLogin(String usrName, String passwd) throws NomeDeUsuarioOuSenhaInvalidaException {
 		boolean resultado =  ((RepositorioClientesArrayList)this.repositorio).buscarPorLogin(usrName, passwd);
-		
+
 		if(resultado == false) {
 			throw new NomeDeUsuarioOuSenhaInvalidaException();
 		}	
-		
+
 	}
 
 	public void alterar (Cliente c) throws ClienteNaoCadastradoException {

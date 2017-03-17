@@ -3,8 +3,9 @@ package br.ufrpe.assistec.negocio.beans;
 public class Tecnico extends Usuario {
 	private String matricula;
 
-	public Tecnico(String matricula) {
-		this.matricula = matricula;
+	public Tecnico(String usrName, String psswd, String mat, String primeiroNome, String segundoNome, String email, String telefone, String endereco, int numOrdens) {
+		super(usrName, psswd, primeiroNome, segundoNome, email, telefone, endereco, numOrdens);
+		this.matricula = mat;
 	}
 
 	public Tecnico() {

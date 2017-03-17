@@ -28,6 +28,10 @@ public class Usuario implements Serializable{
 
 	}
 	
+	public String getNomeCompleto() {
+		return this.primeiroNome + " " + this.segundoNome;
+	}
+	
 	public String getUsrName() {
 		return usrName;
 	}

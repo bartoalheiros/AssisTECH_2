@@ -4,7 +4,7 @@ import br.ufrpe.assistec.negocio.beans.Tecnico;
 
 public interface IRepositorioTecnicos {
 	
-	public void cadastrar(Tecnico tecnico);
+	public boolean cadastrar(Tecnico tecnico);
 	
 	public Tecnico buscar(String mat);
 	
@@ -12,6 +12,13 @@ public interface IRepositorioTecnicos {
 
 	public boolean remover(String matricula);
 	
-	public void atualizar(Tecnico tec);
+	 /**
+     * Atualiza um técnico.
+     * 
+     * @param tec1: técnico que deseja colocar no lugar do tec2.
+     *            
+     * 
+     */
+	public void atualizar(Tecnico tec1, Tecnico tec2);
 	
 }

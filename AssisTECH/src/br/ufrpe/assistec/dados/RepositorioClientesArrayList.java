@@ -32,11 +32,11 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 
 	@Override
 	public boolean cadastrar(Cliente cliente) {
-		if(!getInstance().existe(cliente)){
-			getInstance().listaClientes.add(cliente);
-			this.salvarArquivo();
+		if(getInstance().listaClientes.contains(cliente)){
 			return false;
 		}else {
+			getInstance().listaClientes.add(cliente);
+			this.salvarArquivo();
 			return true;
 		}
 

@@ -7,7 +7,6 @@ import br.ufrpe.assistec.negocio.beans.Cliente;
 import br.ufrpe.assistec.negocio.beans.Equipamento;
 import br.ufrpe.assistec.negocio.beans.Ordem;
 import br.ufrpe.assistec.negocio.beans.Tecnico;
-import br.ufrpe.assistec.negocio.beans.Usuario;
 import br.ufrpe.assistec.exceptions.*;
 
 public class ServidorAssisTech {
@@ -43,10 +42,6 @@ public class ServidorAssisTech {
 		clientes.cadastrar(c);
 	}
 
-	public boolean existeCliente(Cliente c) { 
-		return clientes.existe(c);
-	}
-
 	public Cliente buscarCliente(String cpf) throws ClienteNaoCadastradoException {
 		return clientes.buscar(cpf);
 	}
@@ -66,21 +61,13 @@ public class ServidorAssisTech {
 	public List<Cliente> listarClientes() {
 		return clientes.listar();
 	}
-
-	public boolean existeTecnico(Tecnico tecnico) {
-		return tecnicos.existe(tecnico);
-	}
-
+	
 	public void cadastrarTecnico(Tecnico tecnico) {
 		tecnicos.cadastrar(tecnico);
 	}
 
 	public Tecnico buscarTecnico(String mat) throws TecnicoNaoCadastradoException{
 		return tecnicos.buscar(mat);
-	}
-
-	public boolean existeOrdem(Ordem os) throws OSExisteException {
-		return ordens.existe(os);
 	}
 
 	public void cadastrarOrdem(Ordem os) throws OSExisteException, EquipamentoEmServicoException {
