@@ -147,15 +147,15 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 	}
 
 	public List<Cliente> listarTodos() {
-		return this.getInstance().listaClientes;
+		return getInstance().listaClientes;
 
 	}
 
 	public List<Cliente> listarTodosOrdenadosPorNome() {
 
-		Collections.sort(this.getInstance().listaClientes);
+		Collections.sort(getInstance().listaClientes);
 
-		return this.getInstance().listaClientes;
+		return getInstance().listaClientes;
 
 	}
 

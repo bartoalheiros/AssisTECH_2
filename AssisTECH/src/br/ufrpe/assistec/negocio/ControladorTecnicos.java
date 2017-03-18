@@ -22,7 +22,7 @@ public class ControladorTecnicos {
 	}
 	
 	public void buscarPorLogin(String usrName, String pswd) throws NomeDeUsuarioOuSenhaInvalidaException {
-		boolean resultado =  ((RepositorioClientesArrayList)this.repositorio).buscarPorLogin(usrName, pswd);
+		boolean resultado =  ((RepositorioTecnicoArrayList)this.repositorio).buscarPorLogin(usrName, pswd);
 
 		if(resultado == false) {
 			throw new NomeDeUsuarioOuSenhaInvalidaException();

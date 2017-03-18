@@ -44,7 +44,7 @@ public class LoginController implements Initializable{
 				Scene scene = new Scene(parent);
 				stage.setScene(scene);
 				stage.setTitle("AssisTech");
-				stage.setResizable(false);
+				stage.setResizable(true);
 				stage.show();
 			} catch (NomeDeUsuarioOuSenhaInvalidaException e) {
 				Alert err = new Alert(AlertType.ERROR);

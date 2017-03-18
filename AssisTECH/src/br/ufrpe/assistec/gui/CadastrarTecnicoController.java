@@ -29,7 +29,7 @@ public class CadastrarTecnicoController {
 		try{
 			svr.cadastrarTecnico(tecnico);
 			Alert inf = new Alert(AlertType.INFORMATION);
-			inf.setContentText("Cliente Cadastrado com Sucesso!");
+			inf.setContentText("Técnico Cadastrado com Sucesso!");
 			inf.showAndWait();		
 		}catch(TecnicoJahExisteException e) {
 			Alert err = new Alert(AlertType.ERROR);

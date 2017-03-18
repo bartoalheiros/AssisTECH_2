@@ -6,13 +6,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrpe.assistec.negocio.beans.Cliente;
 import br.ufrpe.assistec.negocio.beans.Tecnico;
 
-public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
+public class RepositorioTecnicoArrayList implements IRepositorioTecnicos, Serializable {
 	private List<Tecnico> listaTecnicos = null;
 	private static RepositorioTecnicoArrayList instance;
 	
@@ -29,7 +30,7 @@ public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
 	}
 	
 	public boolean existe(Tecnico tecnico) {
-		for(Tecnico tec: getInstance().listaTecnicos) {
+		for(Tecnico tec: this.listaTecnicos) {
 			if(tecnico.equals(tec)) {
 				return true;
 			}
@@ -40,16 +41,13 @@ public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
 	
 	@Override
 	public boolean cadastrar(Tecnico tecnico) {
-		if(getInstance().existe(tecnico)) { 
+		if(getInstance().listaTecnicos.contains(tecnico)){
 			return false;
 		}else {
 			getInstance().listaTecnicos.add(tecnico);
 			this.salvarArquivo();
+			return true;
 		}
-		
-		
-		return true;
-
 	}
 	
 	public boolean buscarPorLogin(String usrName, String pswd) {
@@ -77,7 +75,7 @@ public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
 	}
 
 	public List<Tecnico> listarTodos() {
-		return this.listaTecnicos;
+		return getInstance().listaTecnicos;
 
 	}
 	
@@ -143,6 +141,23 @@ public class RepositorioTecnicoArrayList implements IRepositorioTecnicos {
 	public void atualizar(Tecnico tec1, Tecnico tec2) {
 		
 		getInstance().listaTecnicos.set(getInstance().listaTecnicos.indexOf(tec1), tec2);
+	}
+	
+	public static void main(String[] args) {
+		RepositorioTecnicoArrayList repo = RepositorioTecnicoArrayList.getInstance();
+		Tecnico tec = new Tecnico("joao", "1234", "1234", "Joao", "Silva", "joao@gmail.com", "3492-3200", "Rua augusto de campos, 72.", 0);
+		
+		repo.cadastrar(tec);
+		System.out.println("Tencico cadastrado.\n Listando Técnicos.\n");
+		
+		imprimir(repo.listarTodos());
+		
+	}
+	
+	public static void imprimir(List<Tecnico> listaTec) {
+		for(Tecnico tec: listaTec) {
+			System.out.println(tec);
+		}
 	}
 
 }
