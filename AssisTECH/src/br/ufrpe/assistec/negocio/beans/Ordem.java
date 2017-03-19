@@ -8,11 +8,8 @@ public class Ordem {
 	private Tecnico tecnico;
 	private String dataEntrada;
 	private String dataEntrega;
-	private String nomePortador; // O portador é A pessoa que recebeu o equipamento, das mãos do cliente, na entrada. Que será um funcionário da loja: técnico ou atendente.
-	private String prioridade;
-	private String caracteristicasDoDefeito;
-	private String relatorio;
-
+	
+	
 	public void setTecnico(Tecnico tecnico) {
 		this.tecnico = tecnico;
 	}
