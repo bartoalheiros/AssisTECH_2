@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="640.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.assistec.gui.Janela1Controller">
+<BorderPane prefHeight="640.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.assistec.gui.Janela1Controller">
    <center>
       <AnchorPane prefHeight="130.0" prefWidth="362.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar layoutY="-1.0" prefHeight="31.0" prefWidth="1280.0">
+            <MenuBar layoutY="-1.0" prefHeight="31.0" prefWidth="1222.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Cadastrar">
                   <items>
@@ -20,6 +21,11 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <ImageView fitHeight="611.0" fitWidth="1273.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Pictures/assistech/assistech4.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>
