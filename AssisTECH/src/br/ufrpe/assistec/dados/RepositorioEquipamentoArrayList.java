@@ -14,41 +14,47 @@ import br.ufrpe.assistec.exceptions.EquipamentoNaoExisteException;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 import br.ufrpe.assistec.negocio.beans.Equipamento;
 
-public class RepositorioEquipamentosArrayList implements IRepositorioEquipamentos, Serializable{
-	private List<Cliente> listaClientes = null;
-	private static RepositorioEquipamentosArrayList instance;
+public class RepositorioEquipamentoArrayList implements IRepositorioEquipamentos, Serializable{
+	private List<Equipamento> listaEquipamentos = null;
+	private static RepositorioEquipamentoArrayList instance;
 
-	private RepositorioEquipamentosArrayList() {
-		this.listaClientes = new ArrayList(); 
+	private RepositorioEquipamentoArrayList() {
+		this.listaEquipamentos = new ArrayList(); 
 	}
 
-	public static RepositorioEquipamentosArrayList getInstance() {
+	public static RepositorioEquipamentoArrayList getInstance() {
 		if(instance == null) {
 			instance = lerDoArquivo();
 		}
 
 		return instance;
 	}
-	
-	@Override
-	public void cadastrar(Equipamento e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	private static RepositorioClientesArrayList lerDoArquivo() {
-		RepositorioClientesArrayList instanciaLocal = null;
 
-		File in = new File("clientes.dat");
+	@Override
+	public boolean cadastrar(Equipamento e) {
+		if(getInstance().listaEquipamentos.contains(e)){
+			return false;
+		}else {
+			getInstance().listaEquipamentos.add(e);
+			this.salvarArquivo();
+			return true;
+		}
+
+	}
+
+	private static RepositorioEquipamentoArrayList lerDoArquivo() {
+		RepositorioEquipamentoArrayList instanciaLocal = null;
+
+		File in = new File("equipamentos.dat");
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
 		try {
 			fis = new FileInputStream(in);
 			ois = new ObjectInputStream(fis);
 			Object o = ois.readObject();
-			instanciaLocal = (RepositorioClientesArrayList) o;
+			instanciaLocal = (RepositorioEquipamentoArrayList) o;
 		} catch (Exception e) {
-			instanciaLocal = new RepositorioClientesArrayList();
+			instanciaLocal = new RepositorioEquipamentoArrayList();
 		} finally {
 			if (ois != null) {
 				try {
@@ -65,7 +71,7 @@ public class RepositorioEquipamentosArrayList implements IRepositorioEquipamento
 		if (instance == null) {
 			return;
 		}
-		File out = new File("clientes.dat");
+		File out = new File("equipamentos.dat");
 		FileOutputStream fos = null;
 		ObjectOutputStream oos = null;
 
@@ -84,27 +90,42 @@ public class RepositorioEquipamentosArrayList implements IRepositorioEquipamento
 
 
 	@Override
-	public void listar() {
-		// TODO Auto-generated method stub
-		
+	public List<Equipamento> listar() {
+		return getInstance().listaEquipamentos;
+
 	}
 
 	@Override
-	public void remover(String numSerie) throws EquipamentoNaoExisteException {
-		// TODO Auto-generated method stub
-		
+	public void remover(String numSerie) {
+		for(Equipamento equip: getInstance().listaEquipamentos) {
+			if(equip.getNumSerie().equals(numSerie)) {
+				getInstance().listaEquipamentos.remove(equip);
+				this.salvarArquivo();
+				break;
+			}
+		}
+
 	}
 
 	@Override
 	public Equipamento buscar(String numSerie) {
-		// TODO Auto-generated method stub
-		return null;
+		Equipamento equipamento = null;
+
+		for(Equipamento equip: getInstance().listaEquipamentos) {
+			if(equip.getNumSerie().equals(numSerie)) {
+				equipamento = equip;
+				break;
+			}
+		}
+
+
+		return equipamento;
 	}
 
 	@Override
 	public void atualizar(Equipamento equip) throws EquipamentoNaoExisteException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
