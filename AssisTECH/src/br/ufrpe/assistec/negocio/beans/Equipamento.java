@@ -1,7 +1,7 @@
 package br.ufrpe.assistec.negocio.beans;
 
 
-/*Regrinhas: 1 - se o no da OS for '0' ele não está em NENHUMA OS*/
+/*Obs: 1 - se o no da OS for '0' ele não está em NENHUMA OS.*/
 
 public class Equipamento {
 	
@@ -94,13 +94,13 @@ public class Equipamento {
 
 	public String toString() {
 
-		String resultado = String.format("%7s %5s\n", "Numero de Série: ", this.numSerie);
-		resultado += String.format("%6s %5s\n", "Equipamento: ", this.tipo);
+		String resultado = String.format("%7s %5s\n", "Equipamento: ", this.tipo);
+		resultado += String.format("%7s %1s\n", "Portador: ", this.nomePortador);
+		resultado += String.format("%6s %5s\n", "OS no: ", this.numOS);
 		resultado += String.format("%7s %1s\n", "Prioridade : ", this.prioridade);
-		resultado += String.format("%7s %1s\n", "Os no: ", this.numOS);
-		resultado += String.format("%7s %1s\n", "Os no: ", this.numOS);
-		resultado += String.format("%7s %1s\n", "Os no: ", this.numOS);
-		resultado += String.format("%7s %1s\n", "Os no: ", this.numOS);
+		resultado += String.format("%7s %1s\n", "Série no: ", this.numSerie);
+		resultado += String.format("%7s %1s\n", "Resumo do Defeito: ", this.caracteristicasDoDefeito);
+		resultado += String.format("%7s %1s\n", "Relatório: ", this.relatorio);
 
 		return resultado;
 	}
