@@ -28,7 +28,7 @@ public class LoginController implements Initializable{
 	@FXML private TextField txtUserName;
 	@FXML private PasswordField pswdF;
 	@FXML private Button btnAcessar;
-	@FXML private ComboBox privilegio;
+	@FXML private ComboBox<String> privilegio;
 	ServidorAssisTech svr = ServidorAssisTech.getInstance();
 
 

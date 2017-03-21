@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane prefHeight="653.0" prefWidth="606.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.ufrpe.assistec.gui.ConsultarClientesController">
+   <center>
+      <AnchorPane prefHeight="1783.0" prefWidth="608.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtBuscar" layoutX="175.0" layoutY="77.0" prefHeight="25.0" prefWidth="284.0" />
+            <Label layoutX="50.0" layoutY="81.0" text="CPF do Cliente" />
+            <Label layoutX="41.0" layoutY="178.0" text="Cpf" />
+            <Label fx:id="txtCpf" layoutX="155.0" layoutY="173.0" prefHeight="27.0" prefWidth="287.0" />
+            <Label layoutX="44.0" layoutY="235.0" text="Nome" />
+            <Label layoutX="43.0" layoutY="288.0" text="E-mail" />
+            <Label layoutX="37.0" layoutY="347.0" text="Telefone" />
+            <Label fx:id="txtNome" layoutX="155.0" layoutY="230.0" prefHeight="27.0" prefWidth="287.0" />
+            <Label fx:id="txtEmail" layoutX="155.0" layoutY="283.0" prefHeight="27.0" prefWidth="287.0" />
+            <Label fx:id="txtTelefone" layoutX="155.0" layoutY="342.0" prefHeight="27.0" prefWidth="287.0" />
+            <Button fx:id="btnPesquisar" layoutX="489.0" layoutY="77.0" mnemonicParsing="false" onAction="#buscar" text="Pesquisar" />
+            <Button layoutX="370.0" layoutY="547.0" mnemonicParsing="false" text="Editar Cadastro" />
+            <Button layoutX="503.0" layoutY="547.0" mnemonicParsing="false" text="Remover" />
+            <Label fx:id="txtEndereco" layoutX="155.0" layoutY="406.0" prefHeight="27.0" prefWidth="287.0" />
+            <Label layoutX="37.0" layoutY="411.0" text="Endereço" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

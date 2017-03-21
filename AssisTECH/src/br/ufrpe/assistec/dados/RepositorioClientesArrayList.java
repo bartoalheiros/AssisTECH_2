@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import br.ufrpe.assistec.exceptions.ClienteJahCadastradoException;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 
 public class RepositorioClientesArrayList implements IRepositorioClientes, Serializable{

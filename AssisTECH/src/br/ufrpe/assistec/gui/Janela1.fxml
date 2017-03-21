@@ -16,9 +16,18 @@
                   <items>
                     <MenuItem fx:id="cadastrarCliente" mnemonicParsing="false" onAction="#cadastrarCliente" text="Novo Cliente" />
                         <MenuItem fx:id="cadastrarTecnico" mnemonicParsing="false" onAction="#cadastrarTecnico" text="Novo Técnico" />
-                        <MenuItem mnemonicParsing="false" text="Equipamento" />
+                        <MenuItem fx:id="cadastrarEquipamento" mnemonicParsing="false" onAction="#cadastrarEquipamento" text="Equipamento" />
+                        <MenuItem mnemonicParsing="false" text="OS" />
                   </items>
                 </Menu>
+                  <Menu mnemonicParsing="false" text="Consultar">
+                    <items>
+                      <MenuItem fx:id="consultarCliente" mnemonicParsing="false" onAction="#consultarCliente" text="Clientes" />
+                        <MenuItem mnemonicParsing="false" text="Técnicos" />
+                        <MenuItem mnemonicParsing="false" text="Equipamentos" />
+                        <MenuItem mnemonicParsing="false" text="OS" />
+                    </items>
+                  </Menu>
               </menus>
             </MenuBar>
             <ImageView fitHeight="611.0" fitWidth="1273.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
