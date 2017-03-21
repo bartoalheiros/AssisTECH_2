@@ -123,9 +123,25 @@ public class RepositorioEquipamentoArrayList implements IRepositorioEquipamentos
 	}
 
 	@Override
-	public void atualizar(Equipamento equip) throws EquipamentoNaoExisteException {
-		// TODO Auto-generated method stub
+	public boolean atualizar(Equipamento equip) {
+		List<Equipamento> instanciaLocal= getInstance().listaEquipamentos;
+		boolean resultado = false;
+		
+		if(!instanciaLocal.contains(equip)) {
+			resultado = false;
+		}else {
+			for(Equipamento equip2: instanciaLocal) {
+				if(equip2.equals(equip)) {
+					instanciaLocal.set(instanciaLocal.indexOf(equip2), equip);
+					this.salvarArquivo();
+					resultado = true;
+				}
+				
+			}
 
+		}
+		
+		return resultado;
 	}
 
 }

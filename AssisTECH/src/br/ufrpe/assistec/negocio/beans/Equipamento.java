@@ -106,12 +106,12 @@ public class Equipamento {
 	}
 
 	public boolean equals(Equipamento equip) {
-		boolean resultado = false;
+		
 		if(this.numSerie.equals(equip.getNumeroSerie())) {
-			resultado = true;
+			return true;
 		}
 
-		return resultado;
+		return false;
 	}
 
 
