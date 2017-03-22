@@ -1,19 +1,27 @@
 package br.ufrpe.assistec.gui;
 
+import java.io.IOException;
+
 import br.ufrpe.assistec.exceptions.ClienteNaoCadastradoException;
 import br.ufrpe.assistec.negocio.ServidorAssisTech;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 public class ConsultarClientesController {
 	
 	@FXML private Button btnPesquisar;
+	@FXML private Button btnEditar;
 	@FXML private TextField txtBuscar;
 	@FXML private Label txtCpf;
 	@FXML private Label txtNome;
@@ -36,6 +44,18 @@ public class ConsultarClientesController {
 			err.setContentText(e.getMessage());
 			err.showAndWait();
 		}
+	}
+	
+	@FXML
+	public void editar(ActionEvent event) throws IOException {
+		//((Node)event.getSource()).getScene().getWindow().hide();
+		Parent parent = FXMLLoader.load(getClass().getResource("EditarCliente.fxml"));
+		Stage stage = new Stage();
+		Scene scene = new Scene(parent);
+		stage.setScene(scene);
+		stage.setTitle("Editar Cliente");
+		stage.setResizable(false);
+		stage.show();
 	}
 	
 }

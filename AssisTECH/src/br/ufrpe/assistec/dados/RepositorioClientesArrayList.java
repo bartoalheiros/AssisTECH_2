@@ -90,13 +90,18 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 	}
 
 	@Override
-	public void atualizar(String cpf, Cliente cli) {
-		for(Cliente cli2: listaClientes) {
-			this.listaClientes.set(listaClientes.indexOf(cli2), cli);
-			this.salvarArquivo();
-		}
+	public void atualizar(Cliente cli) {
+		List<Cliente> listaClientes = getInstance().listaClientes;
+		
+			if( getInstance().existe(cli) ){
+				listaClientes.set(listaClientes.indexOf(cli), cli);
+				this.salvarArquivo();
+			}
+	
+			
 	}
-
+		
+		
 
 
 	private static RepositorioClientesArrayList lerDoArquivo() {

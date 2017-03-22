@@ -12,7 +12,7 @@ public interface IRepositorioClientes {
 	
 	public void remover(String cpf);
 	
-	public void atualizar(String cpf, Cliente cli);
+	public void atualizar(Cliente cli);
 	
 	//public List<Cliente> listarTodos();
 }

@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</BorderPane>
 
+<BorderPane prefHeight="639.0" prefWidth="549.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <center>
+      <AnchorPane prefHeight="628.0" prefWidth="516.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField layoutX="130.0" layoutY="73.0" prefHeight="25.0" prefWidth="319.0" />
+            <Label layoutX="14.0" layoutY="77.0" text="Digite a Matrícula" />
+            <Button layoutX="458.0" layoutY="73.0" mnemonicParsing="false" text="Pesquisar" />
+            <Label layoutX="26.0" layoutY="165.0" text="Nome" />
+            <Label layoutX="26.0" layoutY="233.0" text="E-mail" />
+            <Label layoutX="26.0" layoutY="282.0" text="Telefone" />
+            <Label layoutX="26.0" layoutY="353.0" text="Numero de OS's" />
+            <Label layoutX="138.0" layoutY="165.0" prefHeight="23.0" prefWidth="387.0" />
+            <Label layoutX="138.0" layoutY="230.0" prefHeight="23.0" prefWidth="344.0" />
+            <Label layoutX="148.0" layoutY="279.0" prefHeight="23.0" prefWidth="247.0" />
+            <Label layoutX="148.0" layoutY="350.0" prefHeight="23.0" prefWidth="186.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

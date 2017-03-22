@@ -15,6 +15,7 @@ public class Janela1Controller {
 	@FXML private MenuItem cadastrarTecnico;
 	@FXML private MenuItem cadastrarEquipamento;
 	@FXML private MenuItem consultarCliente;
+	@FXML private MenuItem editarCliente;
 	
 	@FXML public void cadastrarCliente(ActionEvent event) throws IOException {
 		Parent parent = FXMLLoader.load(getClass().getResource("CadastrarCliente.fxml"));
@@ -51,4 +52,14 @@ public class Janela1Controller {
 		stage.setTitle("Consultar Cliente");
 		stage.show();
 	}
+	
+	@FXML public void editarCliente(ActionEvent event) throws IOException {
+		Parent parent = FXMLLoader.load(getClass().getResource("EditarCliente.fxml"));
+		Stage stage = new Stage();
+		Scene scene = new Scene(parent);
+		stage.setScene(scene);
+		stage.setTitle("Editar Cliente");
+		stage.show();
+	}
+	
 }

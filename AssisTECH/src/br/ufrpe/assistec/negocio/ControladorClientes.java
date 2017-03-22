@@ -54,12 +54,9 @@ public class ControladorClientes {
 
 	}
 
-	public void alterar (Cliente c) throws ClienteNaoCadastradoException {
+	public void atualizar (Cliente c) {
 		if(this.existe(c)){
-			((RepositorioClientesArray)this.repositorio).alterar(c);
-		}else {
-			String cpf = c.getCpf();
-			throw new ClienteNaoCadastradoException(cpf);
+			((RepositorioClientesArrayList)this.repositorio).atualizar(c);
 		}
 	}
 

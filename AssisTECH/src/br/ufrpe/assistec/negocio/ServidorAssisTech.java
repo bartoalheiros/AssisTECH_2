@@ -54,8 +54,8 @@ public class ServidorAssisTech {
 		clientes.remover(cpf);
 	}
 
-	public void alterar (Cliente c) throws ClienteNaoCadastradoException { 
-		clientes.alterar(c);
+	public void atualizar (Cliente c) { 
+		clientes.atualizar(c);
 	}
 
 	public List<Cliente> listarClientes() {

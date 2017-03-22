@@ -1,6 +1,7 @@
 package br.ufrpe.assistec.negocio;
 
 import br.ufrpe.assistec.dados.IRepositorioEquipamentos;
+import br.ufrpe.assistec.dados.RepositorioEquipamentoArrayList;
 import br.ufrpe.assistec.dados.RepositorioEquipamentosArray;
 import br.ufrpe.assistec.negocio.beans.Equipamento;
 import br.ufrpe.assistec.exceptions.*;
@@ -9,7 +10,7 @@ public class ControladorEquipamentos {
 	private IRepositorioEquipamentos repositorio;
 
 	public ControladorEquipamentos() {
-		this.repositorio = new RepositorioEquipamentosArray();
+		this.repositorio = RepositorioEquipamentoArrayList.getInstance();
 	}
 
 	/*
@@ -52,11 +53,11 @@ public class ControladorEquipamentos {
 	}
 
 	public boolean existe(Equipamento equip) { 
-		return ((RepositorioEquipamentosArray)this.repositorio).existe(equip);
+		return ((RepositorioEquipamentoArrayList)this.repositorio).existe(equip);
 	}
 
 	public boolean existeEquipSerie(String numSerie) { 
-		return ((RepositorioEquipamentosArray)this.repositorio).existe(numSerie);
+		return ((RepositorioEquipamentoArrayList)this.repositorio).existe(numSerie);
 	}
 
 	public void listar() { 

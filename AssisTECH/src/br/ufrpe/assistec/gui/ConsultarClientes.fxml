@@ -21,7 +21,7 @@
             <Label fx:id="txtEmail" layoutX="155.0" layoutY="283.0" prefHeight="27.0" prefWidth="287.0" />
             <Label fx:id="txtTelefone" layoutX="155.0" layoutY="342.0" prefHeight="27.0" prefWidth="287.0" />
             <Button fx:id="btnPesquisar" layoutX="489.0" layoutY="77.0" mnemonicParsing="false" onAction="#buscar" text="Pesquisar" />
-            <Button layoutX="370.0" layoutY="547.0" mnemonicParsing="false" text="Editar Cadastro" />
+            <Button fx:id="btnEditar" layoutX="370.0" layoutY="547.0" mnemonicParsing="false" onAction="#editar" text="Editar Cadastro" />
             <Button layoutX="503.0" layoutY="547.0" mnemonicParsing="false" text="Remover" />
             <Label fx:id="txtEndereco" layoutX="155.0" layoutY="406.0" prefHeight="27.0" prefWidth="287.0" />
             <Label layoutX="37.0" layoutY="411.0" text="Endereço" />

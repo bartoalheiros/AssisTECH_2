@@ -9,20 +9,20 @@
    <center>
       <AnchorPane prefHeight="619.0" prefWidth="491.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField layoutX="174.0" layoutY="52.0" prefHeight="25.0" prefWidth="288.0" />
-            <TextField layoutX="174.0" layoutY="103.0" prefHeight="25.0" prefWidth="288.0" />
-            <TextField layoutX="174.0" layoutY="153.0" />
-            <Button layoutX="215.0" layoutY="615.0" mnemonicParsing="false" text="Cadastrar" />
+            <TextField fx:id="txtTipo" layoutX="174.0" layoutY="52.0" prefHeight="25.0" prefWidth="288.0" />
+            <TextField fx:id="txtPortador" layoutX="174.0" layoutY="103.0" prefHeight="25.0" prefWidth="288.0" />
+            <TextField fx:id="txtNumeroDaOS" layoutX="174.0" layoutY="153.0" />
+            <Button fx:id="btnCadastrar" layoutX="215.0" layoutY="615.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
             <Label layoutX="11.0" layoutY="56.0" text="Tipo de Equipamento" />
             <Label layoutX="21.0" layoutY="107.0" text="Portador" />
             <Label layoutX="21.0" layoutY="157.0" text="Número da OS" />
             <Label layoutX="21.0" layoutY="208.0" text="Prioridade" />
-            <TextField layoutX="174.0" layoutY="274.0" prefHeight="25.0" prefWidth="261.0" />
+            <TextField fx:id="txtNumSerie" layoutX="174.0" layoutY="274.0" prefHeight="25.0" prefWidth="261.0" />
             <Label layoutX="18.0" layoutY="278.0" prefHeight="17.0" prefWidth="101.0" text="Número de Série" />
-            <TextArea layoutX="174.0" layoutY="341.0" prefHeight="73.0" prefWidth="285.0" />
+            <TextArea fx:id="txtCharDefeito" layoutX="174.0" layoutY="341.0" prefHeight="73.0" prefWidth="285.0" />
             <Label layoutX="9.0" layoutY="369.0" text="Características do Defeito" />
             <ComboBox fx:id="cbbxUrgencia" layoutX="174.0" layoutY="213.0" prefWidth="150.0" promptText="Selecione uma prioridade" />
-            <TextArea layoutX="174.0" layoutY="470.0" prefHeight="103.0" prefWidth="283.0" />
+            <TextArea fx:id="txtRelatorio" layoutX="174.0" layoutY="470.0" prefHeight="103.0" prefWidth="283.0" />
             <Label layoutX="10.0" layoutY="513.0" text="Relatório de Manutenção" />
          </children>
       </AnchorPane>
