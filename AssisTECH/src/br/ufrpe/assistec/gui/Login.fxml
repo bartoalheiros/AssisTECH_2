@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -15,12 +16,27 @@
                   <Image url="@../../../../../assistech.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtUserName" layoutX="89.0" layoutY="114.0" prefHeight="25.0" prefWidth="181.0" />
-            <Label layoutX="90.0" layoutY="88.0" text="Nome de Usuário" textFill="WHITE" />
-            <Label layoutX="90.0" layoutY="163.0" text="Senha" textFill="WHITE" />
-            <Button fx:id="btnAcessar" layoutX="119.0" layoutY="322.0" mnemonicParsing="false" onAction="#ckLoginData" prefHeight="29.0" prefWidth="117.0" text="Acessar" />
-            <ComboBox fx:id="privilegio" layoutX="99.0" layoutY="252.0" prefHeight="25.0" prefWidth="163.0" promptText="Selecione uma opçao" />
-            <PasswordField fx:id="pswdF" layoutX="90.0" layoutY="201.0" prefHeight="25.0" prefWidth="181.0" />
+            <TextField fx:id="txtUserName" layoutX="89.0" layoutY="126.0" prefHeight="25.0" prefWidth="181.0">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Label layoutX="89.0" layoutY="93.0" text="Nome de Usuário" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="89.0" layoutY="185.0" text="Senha" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Button fx:id="btnAcessar" layoutX="119.0" layoutY="341.0" mnemonicParsing="false" onAction="#ckLoginData" prefHeight="29.0" prefWidth="117.0" text="Acessar">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <ComboBox fx:id="privilegio" layoutX="99.0" layoutY="281.0" prefHeight="25.0" prefWidth="163.0" promptText="Selecione uma opçao" />
+            <PasswordField fx:id="pswdF" layoutX="89.0" layoutY="218.0" prefHeight="25.0" prefWidth="181.0">
+               <font>
+                  <Font size="16.0" />
+               </font></PasswordField>
          </children>
       </AnchorPane>
    </center>
