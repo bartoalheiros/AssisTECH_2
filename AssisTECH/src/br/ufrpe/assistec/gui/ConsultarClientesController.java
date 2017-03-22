@@ -21,7 +21,6 @@ import javafx.scene.control.Button;
 public class ConsultarClientesController {
 	
 	@FXML private Button btnPesquisar;
-	@FXML private Button btnEditar;
 	@FXML private TextField txtBuscar;
 	@FXML private Label txtCpf;
 	@FXML private Label txtNome;
@@ -44,18 +43,6 @@ public class ConsultarClientesController {
 			err.setContentText(e.getMessage());
 			err.showAndWait();
 		}
-	}
-	
-	@FXML
-	public void editar(ActionEvent event) throws IOException {
-		//((Node)event.getSource()).getScene().getWindow().hide();
-		Parent parent = FXMLLoader.load(getClass().getResource("EditarCliente.fxml"));
-		Stage stage = new Stage();
-		Scene scene = new Scene(parent);
-		stage.setScene(scene);
-		stage.setTitle("Editar Cliente");
-		stage.setResizable(false);
-		stage.show();
 	}
 	
 }
