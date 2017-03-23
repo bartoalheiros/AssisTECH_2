@@ -1,8 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<BorderPane prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.assistec.gui.CadastrarEquipamentoController">
+   <center>
+      <AnchorPane prefHeight="579.0" prefWidth="881.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="550.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../assistech5.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnCadastrar" layoutX="483.0" layoutY="418.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="37.0" prefWidth="96.0" text="Buscar">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <Label layoutX="21.0" layoutY="98.0" text="Tipo de Equipamento" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="21.0" layoutY="158.0" text="Portador :" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="21.0" layoutY="214.0" text="Número da OS :" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="21.0" layoutY="279.0" text="Prioridade :" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="21.0" layoutY="354.0" prefHeight="25.0" prefWidth="134.0" text="Número de Série :" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="497.0" layoutY="98.0" text="Características do Defeito :" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="497.0" layoutY="241.0" text="Relatório de Manutenção :" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label layoutX="352.0" layoutY="11.0" text="Consultar Equipamento" textFill="WHITE">
+               <font>
+                  <Font name="Agency FB" size="34.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNumSerie1" layoutX="185.0" layoutY="418.0" prefHeight="25.0" prefWidth="261.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Label layoutX="21.0" layoutY="426.0" prefHeight="25.0" prefWidth="134.0" text="Número de Série :" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="215.0" layoutY="100.0" prefHeight="28.0" prefWidth="231.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="191.0" layoutY="157.0" prefHeight="28.0" prefWidth="231.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="185.0" layoutY="213.0" prefHeight="28.0" prefWidth="231.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="191.0" layoutY="353.0" prefHeight="28.0" prefWidth="231.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="704.0" layoutY="240.0" prefHeight="86.0" prefWidth="231.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="698.0" layoutY="114.0" prefHeight="86.0" prefWidth="231.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="173.0" layoutY="278.0" prefHeight="28.0" prefWidth="231.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>
-

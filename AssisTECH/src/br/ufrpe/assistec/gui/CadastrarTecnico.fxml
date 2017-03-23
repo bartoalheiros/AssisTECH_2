@@ -28,15 +28,15 @@
                <font>
                   <Font size="16.0" />
                </font></TextField>
-            <Label layoutX="14.0" layoutY="90.0" prefHeight="17.0" prefWidth="69.0" text="Nome :" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="90.0" prefHeight="17.0" prefWidth="69.0" text="Nome " textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="11.0" layoutY="151.0" text="Sobrenome :" textFill="WHITE">
+            <Label layoutX="11.0" layoutY="151.0" text="Sobrenome" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="13.0" layoutY="211.0" text="Matricula :" textFill="WHITE">
+            <Label layoutX="13.0" layoutY="211.0" text="Matrícula" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
@@ -44,7 +44,7 @@
                <font>
                   <Font size="16.0" />
                </font></TextField>
-            <Label layoutX="14.0" layoutY="272.0" text="Endereço :" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="272.0" text="Endereço" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
@@ -52,7 +52,7 @@
                <font>
                   <Font size="16.0" />
                </font></TextField>
-            <Label layoutX="13.0" layoutY="330.0" text="Telefone :" textFill="WHITE">
+            <Label layoutX="13.0" layoutY="330.0" text="Telefone" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
@@ -60,7 +60,7 @@
                <font>
                   <Font size="16.0" />
                </font></TextField>
-            <Label layoutX="523.0" layoutY="90.0" text="E-mail :" textFill="WHITE">
+            <Label layoutX="523.0" layoutY="90.0" text="E-mail" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
@@ -73,11 +73,11 @@
                <font>
                   <Font size="16.0" />
                </font></TextField>
-            <Label layoutX="523.0" layoutY="151.0" text="Login :" textFill="WHITE">
+            <Label layoutX="523.0" layoutY="151.0" text="Login" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="523.0" layoutY="211.0" text="Senha :" textFill="WHITE">
+            <Label layoutX="523.0" layoutY="211.0" text="Senha" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>

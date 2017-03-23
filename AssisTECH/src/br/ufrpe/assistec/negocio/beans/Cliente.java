@@ -25,9 +25,13 @@ public class Cliente extends Usuario implements Comparable<Cliente>, Serializabl
 	}
 	
 	
-	/*public boolean equals(Cliente cli) {
-		if(this.cpf.equals(anObject))
-	}*/
+	public boolean equals(Cliente cli) {
+		if(this.cpf.equals(cli.getCpf())){
+			return true;
+		}else {
+			return false;
+		}
+	}
 
 	public String toString() {
 		String resultado = String.format("%5s %5s\n", "cpf: ", this.cpf);
@@ -38,9 +42,9 @@ public class Cliente extends Usuario implements Comparable<Cliente>, Serializabl
 	}
 
 	public static void main(String[] args) {
-		Cliente c1 = new Cliente("032890098-78", "João", "da Silva Júnior", "Rua Leão Coroado, 109, Jardim Brasil, Olinda - PE", "3729-0452", "joao_da_silva_37@yahoo.com.br", 12);
+		//Cliente c1 = new Cliente("032890098-78", "João", "da Silva Júnior", "Rua Leão Coroado, 109, Jardim Brasil, Olinda - PE", "3729-0452", "joao_da_silva_37@yahoo.com.br", 12);
 
-		System.out.println(c1);
+		//System.out.println(c1);
 
 	}
 

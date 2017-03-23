@@ -31,7 +31,7 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 
 	@Override
 	public boolean cadastrar(Cliente cliente) {
-		if(getInstance().listaClientes.contains(cliente)){
+		if(getInstance().existe(cliente)) {
 			return false;
 		}else {
 			getInstance().listaClientes.add(cliente);
@@ -43,7 +43,7 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 	
 	public boolean existe(Cliente cliente) {
 		for(Cliente cli: getInstance().listaClientes) {
-			if(cliente.getCpf().equals(cli.getCpf())) {
+			if(cli.equals(cliente)) {
 				return true;
 			}
 		}

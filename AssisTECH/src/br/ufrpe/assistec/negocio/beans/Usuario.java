@@ -8,7 +8,7 @@ public class Usuario implements Serializable{
 	protected String email;
 	protected String telefone;
 	protected String endereco;
-	protected int numOrdens;
+	protected Integer numOrdens;
 	protected String usrName;
 	protected String passwrd;
 
@@ -56,7 +56,7 @@ public class Usuario implements Serializable{
 		this.segundoNome = segundoNome;
 	}
 
-	public long getNumOrdens() {
+	public Integer getNumOrdens() {
 		return numOrdens;
 	}
 

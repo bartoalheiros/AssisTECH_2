@@ -13,7 +13,7 @@
          <children>
             <ImageView fitHeight="480.0" fitWidth="986.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../Pictures/assistech/assistech5.png" />
+                  <Image url="@../../../../../assistech5.png" />
                </image>
             </ImageView>
             <TextField fx:id="txtNome" layoutX="126.0" layoutY="181.0" prefHeight="25.0" prefWidth="353.0">
@@ -75,6 +75,11 @@
             <Label layoutX="422.0" layoutY="20.0" text="Editar Cliente" textFill="WHITE">
                <font>
                   <Font name="Agency FB" size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtCadastrado" layoutX="34.0" layoutY="394.0" prefHeight="33.0" prefWidth="388.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
                </font>
             </Label>
          </children>

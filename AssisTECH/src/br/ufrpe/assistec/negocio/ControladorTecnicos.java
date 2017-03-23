@@ -36,6 +36,8 @@ public class ControladorTecnicos {
 		tec2.setMatricula(mat);
 
 		if(this.existe(tec2)) {
+			tec = this.repositorio.buscar(mat);
+		}else {
 			throw new TecnicoNaoCadastradoException(mat);
 		}
 

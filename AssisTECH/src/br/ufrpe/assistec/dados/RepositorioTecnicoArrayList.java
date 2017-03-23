@@ -45,7 +45,7 @@ public class RepositorioTecnicoArrayList implements IRepositorioTecnicos, Serial
 			return false;
 		}else {
 			getInstance().listaTecnicos.add(tecnico);
-			this.salvarArquivo();
+			getInstance().salvarArquivo();
 			return true;
 		}
 	}

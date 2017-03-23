@@ -1,12 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<BorderPane prefHeight="469.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.assistec.gui.RemoverClienteController">
    <center>
-      <AnchorPane prefHeight="653.0" prefWidth="606.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="532.0" prefWidth="965.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="521.0" fitWidth="967.0" layoutX="-2.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../assistech5.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtBuscar" layoutX="135.0" layoutY="143.0" onAction="#buscar" prefHeight="37.0" prefWidth="319.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnPesquisar" layoutX="481.0" layoutY="143.0" mnemonicParsing="false" onAction="#buscar" prefHeight="37.0" prefWidth="83.0" text="Buscar">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="41.0" layoutY="147.0" text="CPF" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="41.0" layoutY="210.0" text="Nome" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="283.0" text="Telefone" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="41.0" layoutY="346.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="41.0" layoutY="413.0" text="No de OS's" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnRemover" layoutX="585.0" layoutY="143.0" mnemonicParsing="false" onAction="#remover" text="Remover">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="367.0" layoutY="27.0" text="Remover Clientes" textFill="WHITE">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtNome" layoutX="149.0" layoutY="210.0" prefHeight="30.0" prefWidth="498.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtTelefone" layoutX="161.0" layoutY="283.0" prefHeight="31.0" prefWidth="345.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtEmail" layoutX="161.0" layoutY="346.0" prefHeight="32.0" prefWidth="435.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtNumeroDeOSS" layoutX="149.0" layoutY="413.0" prefHeight="31.0" prefWidth="194.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtResultado" layoutX="706.0" layoutY="143.0" prefHeight="38.0" prefWidth="231.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
    </center>
 </BorderPane>

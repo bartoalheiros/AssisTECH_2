@@ -50,7 +50,7 @@ public class ServidorAssisTech {
 		clientes.buscarPorLogin(usrName, passwd);
 	} 
 
-	public void removerCliente(String cpf) throws ClienteNaoCadastradoException { 
+	public void removerCliente(String cpf) { 
 		clientes.remover(cpf);
 	}
 
@@ -117,6 +117,12 @@ public class ServidorAssisTech {
 
 	public void buscarTecnicoPorLogin(String usrName, String pswd) throws NomeDeUsuarioOuSenhaInvalidaException {
 		tecnicos.buscarPorLogin(usrName, pswd);
+		
+	}
+
+
+	public void removerTecnico(String mat) throws TecnicoNaoCadastradoException {
+		tecnicos.remover(mat);
 		
 	}
 

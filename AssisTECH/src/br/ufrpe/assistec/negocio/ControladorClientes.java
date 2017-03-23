@@ -22,16 +22,28 @@ public class ControladorClientes {
 	}
 
 	public void cadastrar(Cliente cliente) throws ClienteJahCadastradoException {
-		boolean r = this.repositorio.cadastrar(cliente);
 
-		if (cliente != null) {
-			if(r == false) {
-				String cpf = cliente.getCpf();
-				throw new ClienteJahCadastradoException(cpf);
-			} 
-		}else {
+		if (cliente == null) {
 			throw new IllegalArgumentException("Parâmetro inválido");
 		}
+		
+		if (this.existe(cliente)) {
+			throw new ClienteJahCadastradoException(cliente.getCpf());
+		}
+		
+		this.repositorio.cadastrar(cliente);
+		
+		
+//		boolean r = this.repositorio.cadastrar(cliente);
+//
+//		if (cliente != null) {
+//			if(r == false) {
+//				String cpf = cliente.getCpf();
+//				throw new ClienteJahCadastradoException(cpf);
+//			} 
+//		}else {
+//			throw new IllegalArgumentException("Parâmetro inválido");
+//		}
 
 	}
 
@@ -60,12 +72,10 @@ public class ControladorClientes {
 		}
 	}
 
-	public void remover(String cpf) throws ClienteNaoCadastradoException {
-		if(this.buscar(cpf) != null){
-			((RepositorioClientesArray)this.repositorio).remover(cpf);
-		}else {
-			throw new ClienteNaoCadastradoException(cpf);
-		}
+	public void remover(String cpf) {
+		
+		((RepositorioClientesArrayList)this.repositorio).remover(cpf);
+		
 	}
 
 	public List<Cliente> listar() { 

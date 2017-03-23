@@ -23,7 +23,7 @@
                   <Menu mnemonicParsing="false" text="Consultar">
                     <items>
                       <MenuItem fx:id="consultarCliente" mnemonicParsing="false" onAction="#consultarCliente" text="Clientes" />
-                        <MenuItem mnemonicParsing="false" text="Técnicos" />
+                        <MenuItem fx:id="consultarTecnico" mnemonicParsing="false" onAction="#consultarTecnico" text="Técnicos" />
                         <MenuItem mnemonicParsing="false" text="Equipamentos" />
                         <MenuItem mnemonicParsing="false" text="OS" />
                     </items>
@@ -38,9 +38,9 @@
                   </Menu>
                   <Menu mnemonicParsing="false" text="Remover">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Cliente" />
-                        <MenuItem mnemonicParsing="false" text="Técnico" />
-                        <MenuItem mnemonicParsing="false" text="Equipamento" />
+                      <MenuItem fx:id="removerCliente" mnemonicParsing="false" onAction="#removerCliente" text="Cliente" />
+                        <MenuItem fx:id="removerTecnico" mnemonicParsing="false" onAction="#removerTecnico" text="Técnico" />
+                        <MenuItem fx:id="consultarEquipamento" mnemonicParsing="false" onAction="#consultarEquipamento" text="Equipamento" />
                         <MenuItem mnemonicParsing="false" text="OS" />
                     </items>
                   </Menu>

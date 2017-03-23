@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
@@ -17,6 +18,7 @@ public class EditarClienteController {
 	@FXML private TextField txtEndereco;
 	@FXML private TextField txtTelefone;
 	@FXML private TextField txtEmail;
+	@FXML private Label txtCadastrado;
 	
 	@FXML private Button btnPesquisar;
 	@FXML private Button btnSalvar;
@@ -46,5 +48,6 @@ public class EditarClienteController {
 		cli.setTelefone(txtTelefone.getText());
 		cli.setEndereco(txtEndereco.getText());
 		svr.atualizar(cli);
+		txtCadastrado.setText("Cliente editado com sucesso!");
 	}
 }

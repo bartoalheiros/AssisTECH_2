@@ -21,6 +21,7 @@ public class CadastrarTecnicoController {
 	@FXML private TextField txtSenha;
 	@FXML private Button btnCadastrar;
 	
+	
 	ServidorAssisTech svr = ServidorAssisTech.getInstance();
 	
 	@FXML public void cadastrar(ActionEvent event) {

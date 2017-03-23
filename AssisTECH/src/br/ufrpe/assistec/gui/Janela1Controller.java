@@ -16,6 +16,11 @@ public class Janela1Controller {
 	@FXML private MenuItem cadastrarEquipamento;
 	@FXML private MenuItem consultarCliente;
 	@FXML private MenuItem editarCliente;
+	@FXML private MenuItem consultarTecnico;
+	@FXML private MenuItem removerCliente;
+	@FXML private MenuItem removerTecnico;
+	@FXML private MenuItem consultarEquipamento;
+	
 	
 	@FXML public void cadastrarCliente(ActionEvent event) throws IOException {
 		Parent parent = FXMLLoader.load(getClass().getResource("CadastrarCliente.fxml"));
@@ -23,6 +28,7 @@ public class Janela1Controller {
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
 		stage.setTitle("Cadastrar Cliente");
+		stage.setResizable(false);
 		stage.show();
 	}
 	
@@ -32,6 +38,7 @@ public class Janela1Controller {
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
 		stage.setTitle("Cadastrar Técnico");
+		stage.setResizable(false);
 		stage.show();
 	}
 	
@@ -41,6 +48,7 @@ public class Janela1Controller {
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
 		stage.setTitle("Cadastrar Equipamento");
+		stage.setResizable(false);
 		stage.show();
 	}
 	
@@ -50,6 +58,7 @@ public class Janela1Controller {
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
 		stage.setTitle("Consultar Cliente");
+		stage.setResizable(false);
 		stage.show();
 	}
 	
@@ -59,7 +68,47 @@ public class Janela1Controller {
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
 		stage.setTitle("Editar Cliente");
+		stage.setResizable(false);
 		stage.show();
 	}
 	
+	@FXML public void consultarTecnico(ActionEvent event) throws IOException {
+		Parent parent = FXMLLoader.load(getClass().getResource("ConsultarTecnicos.fxml"));
+		Stage stage = new Stage();
+		Scene scene = new Scene(parent);
+		stage.setScene(scene);
+		stage.setTitle("Consultar Técnico");
+		stage.setResizable(false);
+		stage.show();
+	}
+	
+	@FXML public void removerCliente(ActionEvent event) throws IOException {
+		Parent parent = FXMLLoader.load(getClass().getResource("RemoverCliente.fxml"));
+		Stage stage = new Stage();
+		Scene scene = new Scene(parent);
+		stage.setScene(scene);
+		stage.setTitle("Remover Cliente");
+		stage.setResizable(false);
+		stage.show();
+	}
+	
+	@FXML public void removerTecnico(ActionEvent event) throws IOException {
+		Parent parent = FXMLLoader.load(getClass().getResource("RemoverTecnico.fxml"));
+		Stage stage = new Stage();
+		Scene scene = new Scene(parent);
+		stage.setScene(scene);
+		stage.setTitle("Remover Tecnico");
+		stage.setResizable(false);
+		stage.show();
+	}
+	
+	@FXML public void consultarEquipamento(ActionEvent event) throws IOException {
+		Parent parent = FXMLLoader.load(getClass().getResource("ConsultarEquipamentos.fxml"));
+		Stage stage = new Stage();
+		Scene scene = new Scene(parent);
+		stage.setScene(scene);
+		stage.setTitle("Consultar Equipamentos");
+		stage.setResizable(false);
+		stage.show();
+	}
 }
