@@ -32,19 +32,19 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Label layoutX="21.0" layoutY="98.0" text="Tipo de Equipamento :" textFill="WHITE">
+            <Label layoutX="21.0" layoutY="98.0" text="Tipo de Equipamento " textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="21.0" layoutY="158.0" text="Portador :" textFill="WHITE">
+            <Label layoutX="21.0" layoutY="158.0" text="Portador " textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="21.0" layoutY="214.0" text="Número da OS :" textFill="WHITE">
+            <Label layoutX="21.0" layoutY="214.0" text="Número da OS " textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="21.0" layoutY="279.0" text="Prioridade :" textFill="WHITE">
+            <Label layoutX="21.0" layoutY="279.0" text="Prioridade " textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
@@ -52,7 +52,7 @@
                <font>
                   <Font size="16.0" />
                </font></TextField>
-            <Label layoutX="21.0" layoutY="354.0" prefHeight="25.0" prefWidth="134.0" text="Número de Série :" textFill="WHITE">
+            <Label layoutX="21.0" layoutY="354.0" prefHeight="25.0" prefWidth="134.0" text="Número de Série " textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
@@ -60,19 +60,24 @@
                <font>
                   <Font size="16.0" />
                </font></TextArea>
-            <Label layoutX="497.0" layoutY="98.0" text="Características do Defeito :" textFill="WHITE">
+            <Label layoutX="497.0" layoutY="98.0" text="Características do Defeito " textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
             <ComboBox fx:id="cbbxUrgencia" layoutX="185.0" layoutY="274.0" prefHeight="33.0" prefWidth="181.0" promptText="Selecione uma prioridade" />
             <TextArea fx:id="txtRelatorio" layoutX="687.0" layoutY="202.0" prefHeight="103.0" prefWidth="250.0" />
-            <Label layoutX="497.0" layoutY="241.0" text="Relatório de Manutenção :" textFill="WHITE">
+            <Label layoutX="497.0" layoutY="241.0" text="Relatório de Manutenção " textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Label>
             <Label layoutX="352.0" layoutY="11.0" text="Cadastro de Equipamento" textFill="WHITE">
                <font>
                   <Font name="Agency FB" size="34.0" />
+               </font>
+            </Label>
+            <Label layoutX="46.0" layoutY="427.0" prefHeight="32.0" prefWidth="406.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
                </font>
             </Label>
          </children>
