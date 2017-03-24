@@ -1,5 +1,6 @@
-package br.ufrpe.assistec.dados;
+package br.ufrpe.assistec.bkp;
 
+import br.ufrpe.assistec.dados.IRepositorioEquipamentos;
 import br.ufrpe.assistec.exceptions.EquipamentoNaoExisteException;
 import br.ufrpe.assistec.negocio.beans.Equipamento;
 

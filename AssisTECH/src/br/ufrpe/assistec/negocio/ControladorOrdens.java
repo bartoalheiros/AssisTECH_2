@@ -1,7 +1,7 @@
 package br.ufrpe.assistec.negocio;
 
-import br.ufrpe.assistec.dados.RepositorioOrdensArray;
 import br.ufrpe.assistec.negocio.beans.Ordem;
+import br.ufrpe.assistec.bkp.RepositorioOrdensArray;
 import br.ufrpe.assistec.exceptions.*;
 
 public class ControladorOrdens {

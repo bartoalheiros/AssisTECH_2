@@ -4,7 +4,7 @@ package br.ufrpe.assistec.exceptions;
 
 public class ClienteNaoCadastradoException extends Exception {
 
-	public ClienteNaoCadastradoException(String cpf) {
+	public ClienteNaoCadastradoException(Long cpf) {
 		super("O cpf " + cpf + " não é referente a nenhum cliente cadastrado neste Sistema.");
 	}
 }

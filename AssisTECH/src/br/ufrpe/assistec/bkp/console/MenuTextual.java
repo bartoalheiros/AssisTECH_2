@@ -1,4 +1,4 @@
-package br.ufrpe.assistec.gui.console;
+package br.ufrpe.assistec.bkp.console;
 
 import java.util.Scanner;
 

@@ -38,11 +38,11 @@ public class ServidorAssisTech {
 		return instance;
 	}
 
-	public void cadastrarCliente(Cliente c) throws ClienteJahCadastradoException { 
+	public void cadastrarCliente(Cliente c) throws ClienteJahCadastradoException, CampoCpfVazioException { 
 		clientes.cadastrar(c);
 	}
 
-	public Cliente buscarCliente(String cpf) throws ClienteNaoCadastradoException {
+	public Cliente buscarCliente(Long cpf) throws ClienteNaoCadastradoException {
 		return clientes.buscar(cpf);
 	}
 	

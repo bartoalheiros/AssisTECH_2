@@ -1,5 +1,6 @@
-package br.ufrpe.assistec.dados;
+package br.ufrpe.assistec.bkp;
 
+import br.ufrpe.assistec.dados.IRepositorioTecnicos;
 import br.ufrpe.assistec.negocio.beans.Equipamento;
 import br.ufrpe.assistec.negocio.beans.Tecnico;
 

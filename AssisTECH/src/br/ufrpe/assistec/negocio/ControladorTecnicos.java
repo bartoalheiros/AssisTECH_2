@@ -2,10 +2,10 @@ package br.ufrpe.assistec.negocio;
 
 import java.util.List;
 
+import br.ufrpe.assistec.bkp.RepositorioTecnicosArray;
 import br.ufrpe.assistec.dados.IRepositorioTecnicos;
 import br.ufrpe.assistec.dados.RepositorioClientesArrayList;
 import br.ufrpe.assistec.dados.RepositorioTecnicoArrayList;
-import br.ufrpe.assistec.dados.RepositorioTecnicosArray;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 import br.ufrpe.assistec.negocio.beans.Tecnico;
 import br.ufrpe.assistec.exceptions.*;
