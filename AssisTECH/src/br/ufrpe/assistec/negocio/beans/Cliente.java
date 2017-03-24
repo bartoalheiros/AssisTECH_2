@@ -2,8 +2,6 @@ package br.ufrpe.assistec.negocio.beans;
 
 import java.io.Serializable;
 
-import br.ufrpe.assistec.exceptions.CpfCharException;
-
 public class Cliente extends Usuario implements Comparable<Cliente>, Serializable{
 
 	private Long cpf;

@@ -1,7 +1,6 @@
 package br.ufrpe.assistec.gui;
 
 import br.ufrpe.assistec.exceptions.ClienteJahCadastradoException;
-import br.ufrpe.assistec.exceptions.CpfCharException;
 import br.ufrpe.assistec.negocio.ServidorAssisTech;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 import javafx.fxml.FXML;
@@ -27,6 +26,7 @@ public class CadastrarClienteController {
 	
 	@FXML public void cadastrar() throws NumberFormatException, ClienteJahCadastradoException {
 		
+		//testando o campo CPF
 		try{
 			cpf = Long.parseLong(txtCpf.getText());
 		}catch(NumberFormatException e) {
@@ -38,12 +38,12 @@ public class CadastrarClienteController {
 		
 		
 		
-		
+		//instanciando o cliente
 		Cliente cliente = new Cliente(txtLogin.getText(), txtSenha.getText(), cpf, txtNome.getText(), txtSobreNome.getText(), txtEndereco.getText(), txtTelefone.getText(), txtEmail.getText(), 0);
 		
 		
 		
-		
+		//cadastrando o cliente
 		try {
 			serv.cadastrarCliente(cliente);
 			Alert inf = new Alert(AlertType.INFORMATION);

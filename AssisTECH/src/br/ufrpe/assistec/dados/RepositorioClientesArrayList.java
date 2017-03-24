@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import br.ufrpe.assistec.exceptions.CpfCharException;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 
 public class RepositorioClientesArrayList implements IRepositorioClientes, Serializable{
@@ -166,7 +165,7 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 
 	}
 
-	public static void main(String[] args) throws CpfCharException {
+	public static void main(String[] args) {
 
 		RepositorioClientesArrayList repo = RepositorioClientesArrayList.getInstance();
 
