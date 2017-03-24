@@ -80,7 +80,7 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 	}
 
 	@Override
-	public void remover(String cpf) {
+	public void remover(Long cpf) {
 
 		for(Cliente cli: getInstance().listaClientes) {
 			if(cli.getCpf().equals(cpf)) {

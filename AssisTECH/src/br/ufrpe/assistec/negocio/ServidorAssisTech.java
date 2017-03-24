@@ -50,7 +50,7 @@ public class ServidorAssisTech {
 		clientes.buscarPorLogin(usrName, passwd);
 	} 
 
-	public void removerCliente(String cpf) { 
+	public void removerCliente(Long cpf) { 
 		clientes.remover(cpf);
 	}
 

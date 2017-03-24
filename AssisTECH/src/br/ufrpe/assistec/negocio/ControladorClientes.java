@@ -72,7 +72,7 @@ public class ControladorClientes {
 		}
 	}
 
-	public void remover(String cpf) {
+	public void remover(Long cpf) {
 		
 		((RepositorioClientesArrayList)this.repositorio).remover(cpf);
 		

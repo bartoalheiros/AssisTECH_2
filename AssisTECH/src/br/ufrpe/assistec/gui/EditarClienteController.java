@@ -24,11 +24,21 @@ public class EditarClienteController {
 	@FXML private Button btnSalvar;
 	ServidorAssisTech svr = ServidorAssisTech.getInstance();
 	Cliente cli = null;
+	Long cpf = null;
 	
 	@FXML
 	public void buscar(ActionEvent event) {
+		try{
+			cpf = Long.parseLong(txtCpf.getText());
+		}catch(NumberFormatException e) {
+			Alert err = new Alert(AlertType.ERROR);
+			err.setContentText("Preencha o campo CPF corretamente.");
+			err.showAndWait();
+			return;
+		}
+		
 		try {
-			cli = svr.buscarCliente(txtCpf.getText());
+			cli = svr.buscarCliente(Long.parseLong(txtCpf.getText()));
 			txtNome.setText(cli.getPrimeiroNome());
 			txtSobreNome.setText(cli.getSegundoNome());
 			txtEmail.setText(cli.getEmail());

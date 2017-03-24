@@ -22,10 +22,21 @@ public class RemoverClienteController {
 	@FXML private Label txtResultado;
 	ServidorAssisTech svr = ServidorAssisTech.getInstance();
 	
+	Long cpf = null;
+	
 	@FXML
 	public void buscar(ActionEvent event) {
+		try{
+			cpf = Long.parseLong(txtBuscar.getText());
+		}catch(NumberFormatException e) {
+			Alert err = new Alert(AlertType.ERROR);
+			err.setContentText("Preencha o campo CPF corretamente.");
+			err.showAndWait();
+			return;
+		}
+		
 		try {
-			Cliente cli = svr.buscarCliente(txtBuscar.getText());
+			Cliente cli = svr.buscarCliente(cpf);
 			txtNome.setText(cli.getNomeCompleto());
 			txtEmail.setText(cli.getEmail());
 			txtTelefone.setText(cli.getTelefone());
@@ -39,7 +50,12 @@ public class RemoverClienteController {
 	
 	@FXML
 	public void remover(ActionEvent event) throws ClienteNaoCadastradoException {
-		svr.removerCliente(txtBuscar.getText());
-		txtResultado.setText("Técnico Removido com Sucesso!");
+		
+		Alert err = new Alert(AlertType.CONFIRMATION);
+		err.setContentText("Tem certeza de que deseja remover este cliente?");
+		err.showAndWait();
+		
+		svr.removerCliente(cpf);
+		txtResultado.setText("Cliente Removido com Sucesso!");
 	}
 }
