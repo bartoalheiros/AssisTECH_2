@@ -2,17 +2,19 @@ package br.ufrpe.assistec.negocio.beans;
 
 import java.io.Serializable;
 
+import br.ufrpe.assistec.exceptions.CpfCharException;
+
 public class Cliente extends Usuario implements Comparable<Cliente>, Serializable{
 
-	private String cpf;
+	private Long cpf;
 
 
-	public Cliente(String usrName, String psswd, String cpf, String primeiroNome,String segundoNome, String endereco, String telefone, String email, int numOrdens) {
+	public Cliente(String usrName, String psswd, Long cpf, String primeiroNome,String segundoNome, String endereco, String telefone, String email, int numOrdens) {
 		super(usrName, psswd, primeiroNome, segundoNome, email, telefone, endereco, numOrdens);
-		this.cpf = cpf;
+		this.setCpf(cpf);
 	}
 
-	public Cliente(String cpf) {
+	public Cliente(Long cpf) {
 		this.cpf = cpf;
 	}
 
@@ -20,17 +22,20 @@ public class Cliente extends Usuario implements Comparable<Cliente>, Serializabl
 
 	}
 
-	public String getCpf() {
+	public Long getCpf() {
 		return this.cpf;
 	}
 	
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
+	}
 	
 	public boolean equals(Cliente cli) {
 		if(this.cpf.equals(cli.getCpf())){
 			return true;
-		}else {
-			return false;
 		}
+
+		return false;
 	}
 
 	public String toString() {

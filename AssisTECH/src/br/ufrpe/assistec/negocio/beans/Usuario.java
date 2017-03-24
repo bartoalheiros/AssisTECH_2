@@ -2,7 +2,7 @@ package br.ufrpe.assistec.negocio.beans;
 
 import java.io.Serializable;
 
-public class Usuario implements Serializable{
+public abstract class Usuario implements Serializable{
 	protected String primeiroNome;
 	protected String segundoNome;
 	protected String email;

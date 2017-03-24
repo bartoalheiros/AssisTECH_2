@@ -1,8 +1,8 @@
 package br.ufrpe.assistec.negocio;
 
+import br.ufrpe.assistec.bkp.RepositorioEquipamentosArray;
 import br.ufrpe.assistec.dados.IRepositorioEquipamentos;
 import br.ufrpe.assistec.dados.RepositorioEquipamentoArrayList;
-import br.ufrpe.assistec.dados.RepositorioEquipamentosArray;
 import br.ufrpe.assistec.negocio.beans.Equipamento;
 import br.ufrpe.assistec.exceptions.*;
 

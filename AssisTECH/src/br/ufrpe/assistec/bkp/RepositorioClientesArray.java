@@ -1,5 +1,6 @@
-package br.ufrpe.assistec.dados;
+package br.ufrpe.assistec.bkp;
 
+import br.ufrpe.assistec.dados.IRepositorioClientes;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 
 public class RepositorioClientesArray implements IRepositorioClientes {

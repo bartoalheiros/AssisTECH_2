@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import br.ufrpe.assistec.exceptions.CpfCharException;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 
 public class RepositorioClientesArrayList implements IRepositorioClientes, Serializable{
@@ -31,28 +32,30 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 
 	@Override
 	public boolean cadastrar(Cliente cliente) {
-		if(getInstance().existe(cliente)) {
-			return false;
-		}else {
+		List<Cliente> listaClientes = getInstance().listaClientes;
+		
+		if(!listaClientes.contains(cliente)) {
 			getInstance().listaClientes.add(cliente);
 			this.salvarArquivo();
 			return true;
 		}
 
+		return false;
+
 	}
-	
+
 	public boolean existe(Cliente cliente) {
 		for(Cliente cli: getInstance().listaClientes) {
 			if(cli.equals(cliente)) {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 
 	@Override
-	public Cliente buscaPorCpf(String cpf) {
+	public Cliente buscaPorCpf(Long cpf) {
 		Cliente cliente = null;
 
 		for(Cliente cli: getInstance().listaClientes) {
@@ -61,7 +64,7 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 				break;
 			}
 		}
-		
+
 		return cliente;
 	}
 
@@ -72,10 +75,10 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	@Override
 	public void remover(String cpf) {
 
@@ -92,16 +95,16 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 	@Override
 	public void atualizar(Cliente cli) {
 		List<Cliente> listaClientes = getInstance().listaClientes;
-		
-			if( getInstance().existe(cli) ){
-				listaClientes.set(listaClientes.indexOf(cli), cli);
-				this.salvarArquivo();
-			}
-	
-			
+
+		if( getInstance().existe(cli) ){
+			listaClientes.set(listaClientes.indexOf(cli), cli);
+			this.salvarArquivo();
+		}
+
+
 	}
-		
-		
+
+
 
 
 	private static RepositorioClientesArrayList lerDoArquivo() {
@@ -163,14 +166,14 @@ public class RepositorioClientesArrayList implements IRepositorioClientes, Seria
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CpfCharException {
 
 		RepositorioClientesArrayList repo = RepositorioClientesArrayList.getInstance();
 
-		Cliente cli1 = new Cliente("JoaoSilva", "12791", "1234567", "João", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
-		Cliente cli2 = new Cliente("Claudio", "123", "1234568", "Cláudio", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
-		Cliente cli3 = new Cliente("CSilva", "456", "1234569", "Cristiano", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
-		Cliente cli4 = new Cliente("NSilva", "321", "1234561", "Norma", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
+		Cliente cli1 = new Cliente("JoaoSilva", "12791", new Long(1234567), "João", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
+		Cliente cli2 = new Cliente("Claudio", "123", new Long(1234568), "Cláudio", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
+		Cliente cli3 = new Cliente("CSilva", "456", new Long(1234569), "Cristiano", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
+		Cliente cli4 = new Cliente("NSilva", "321", new Long(1234561), "Norma", "Silva", "Rua das Garças, 72.", "3493-0282", "joao@gmail.com", 2);
 
 
 

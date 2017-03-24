@@ -3,18 +3,18 @@
 package br.ufrpe.assistec.exceptions;
 
 public class ClienteJahCadastradoException extends Exception{
-	private String cpf;
+	private Long cpf;
 
-	public ClienteJahCadastradoException(String cpf) {
-		super("O cpf" + cpf + "já está cadastrado no sistema.");
-		this.cpf = cpf;
+	public ClienteJahCadastradoException(Long long1) {
+		super("O cpf" + long1 + "já está cadastrado no sistema.");
+		this.cpf = long1;
 	}
 
-	public String getCpf() {
+	public Long getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(String cpf) {
+	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
 

@@ -1,21 +1,14 @@
 package br.ufrpe.assistec.gui;
 
-import java.io.IOException;
-
 import br.ufrpe.assistec.exceptions.ClienteNaoCadastradoException;
 import br.ufrpe.assistec.negocio.ServidorAssisTech;
 import br.ufrpe.assistec.negocio.beans.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 public class ConsultarClientesController {
@@ -29,11 +22,23 @@ public class ConsultarClientesController {
 	@FXML private Label txtEndereco;
 	ServidorAssisTech svr = ServidorAssisTech.getInstance();
 	
+	Long cpf = null;
+	
 	@FXML
 	public void buscar(ActionEvent event) {
+		
+		try{
+			cpf = Long.parseLong(txtBuscar.getText());
+		}catch(NumberFormatException e) {
+			Alert err = new Alert(AlertType.ERROR);
+			err.setContentText("Preencha o campo CPF corretamente.");
+			err.showAndWait();
+			return;
+		}
+		
 		try {
-			Cliente cli = svr.buscarCliente(txtBuscar.getText());
-			txtCpf.setText(cli.getCpf());
+			Cliente cli = svr.buscarCliente(cpf);
+			txtCpf.setText(cli.getCpf().toString());
 			txtNome.setText(cli.getNomeCompleto());
 			txtEmail.setText(cli.getEmail());
 			txtTelefone.setText(cli.getTelefone());
