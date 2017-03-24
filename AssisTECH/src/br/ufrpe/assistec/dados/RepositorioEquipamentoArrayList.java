@@ -144,4 +144,9 @@ public class RepositorioEquipamentoArrayList implements IRepositorioEquipamentos
 		return resultado;
 	}
 
+	public boolean existe(String numSerie) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

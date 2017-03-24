@@ -25,37 +25,53 @@ public class RemoverClienteController {
 	Long cpf = null;
 	
 	@FXML
-	public void buscar(ActionEvent event) {
+	public boolean validarCpf(ActionEvent event) {
 		try{
 			cpf = Long.parseLong(txtBuscar.getText());
+			return true;
 		}catch(NumberFormatException e) {
 			Alert err = new Alert(AlertType.ERROR);
 			err.setContentText("Preencha o campo CPF corretamente.");
 			err.showAndWait();
-			return;
 		}
 		
-		try {
-			Cliente cli = svr.buscarCliente(cpf);
-			txtNome.setText(cli.getNomeCompleto());
-			txtEmail.setText(cli.getEmail());
-			txtTelefone.setText(cli.getTelefone());
-			txtNumeroDeOSS.setText(cli.getNumOrdens().toString());
-		} catch (ClienteNaoCadastradoException e) {
-			Alert err = new Alert(AlertType.ERROR);
-			err.setContentText(e.getMessage());
-			err.showAndWait();
+		return false;
+	}
+	
+	
+	
+	@FXML
+	public void buscar(ActionEvent event) {
+		
+		if(this.validarCpf(event)) {
+		
+			try {
+				Cliente cli = svr.buscarCliente(cpf);
+				txtNome.setText(cli.getNomeCompleto());
+				txtEmail.setText(cli.getEmail());
+				txtTelefone.setText(cli.getTelefone());
+				txtNumeroDeOSS.setText(cli.getNumOrdens().toString());
+			} catch (ClienteNaoCadastradoException e) {
+				Alert err = new Alert(AlertType.ERROR);
+				err.setContentText(e.getMessage());
+				err.showAndWait();
+			}
+		
 		}
 	}
 	
 	@FXML
 	public void remover(ActionEvent event) throws ClienteNaoCadastradoException {
 		
-		Alert err = new Alert(AlertType.CONFIRMATION);
-		err.setContentText("Tem certeza de que deseja remover este cliente?");
-		err.showAndWait();
+		if(this.validarCpf(event)) {
 		
-		svr.removerCliente(cpf);
-		txtResultado.setText("Cliente Removido com Sucesso!");
+			Alert err = new Alert(AlertType.CONFIRMATION);
+			err.setContentText("Tem certeza de que deseja remover este cliente?");
+			err.showAndWait();
+
+			svr.removerCliente(cpf);
+			txtResultado.setText("Cliente Removido com Sucesso!");
+			
+		}	
 	}
 }

@@ -38,7 +38,7 @@ public class ServidorAssisTech {
 		return instance;
 	}
 
-	public void cadastrarCliente(Cliente c) throws ClienteJahCadastradoException, CampoCpfVazioException { 
+	public void cadastrarCliente(Cliente c) throws ClienteJahCadastradoException { 
 		clientes.cadastrar(c);
 	}
 

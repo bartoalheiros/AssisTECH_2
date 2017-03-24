@@ -1,6 +1,5 @@
 package br.ufrpe.assistec.gui;
 
-import br.ufrpe.assistec.exceptions.CampoCpfVazioException;
 import br.ufrpe.assistec.exceptions.ClienteJahCadastradoException;
 import br.ufrpe.assistec.exceptions.CpfCharException;
 import br.ufrpe.assistec.negocio.ServidorAssisTech;
@@ -54,12 +53,7 @@ public class CadastrarClienteController {
 			Alert err = new Alert(AlertType.ERROR);
 			err.setContentText(e.getMessage());
 			err.showAndWait();
-		} catch (CampoCpfVazioException e) {
-			Alert err = new Alert(AlertType.ERROR);
-			err.setContentText(e.getMessage());
-			err.showAndWait();
-		} 
-			
-		
+		}
+	
 	}
 }

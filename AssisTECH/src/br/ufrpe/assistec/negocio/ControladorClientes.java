@@ -2,7 +2,6 @@ package br.ufrpe.assistec.negocio;
 
 import java.util.List;
 
-import br.ufrpe.assistec.bkp.RepositorioClientesArray;
 import br.ufrpe.assistec.dados.IRepositorioClientes;
 import br.ufrpe.assistec.dados.RepositorioClientesArrayList;
 import br.ufrpe.assistec.exceptions.*;
@@ -21,12 +20,8 @@ public class ControladorClientes {
 		return resultado;
 	}
 
-	public void cadastrar(Cliente cliente) throws ClienteJahCadastradoException, CampoCpfVazioException {
+	public void cadastrar(Cliente cliente) throws ClienteJahCadastradoException {
 
-		if (cliente.getCpf() == null) {
-			throw new CampoCpfVazioException();
-		}
-		
 		if (this.existe(cliente)) {
 			throw new ClienteJahCadastradoException(cliente.getCpf());
 		}
