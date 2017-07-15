@@ -28,7 +28,7 @@ public class LoginController implements Initializable{
 	@FXML private TextField txtUserName;
 	@FXML private PasswordField pswdF;
 	@FXML private Button btnAcessar;
-	@FXML private ComboBox<String> privilegio;
+	@FXML private ComboBox<String> tipoUsuario;
 	ServidorAssisTech svr = ServidorAssisTech.getInstance();
 
 
@@ -39,15 +39,15 @@ public class LoginController implements Initializable{
 
 		try{
 
-			privilegio.getValue();
+			tipoUsuario.getValue();
 
 
-			if(privilegio.getValue().equals("Cliente")){
+			if(tipoUsuario.getValue().equals("Cliente")){
 				try {
 
 					svr.buscarClientePorLogin(usrName, pswd);
 					((Node)event.getSource()).getScene().getWindow().hide();
-					Parent parent = FXMLLoader.load(getClass().getResource("Janela1.fxml"));
+					Parent parent = FXMLLoader.load(getClass().getResource("Janela1.fxml")); //carrega janela1
 					Stage stage = new Stage();
 					Scene scene = new Scene(parent);
 					stage.setScene(scene);
@@ -62,11 +62,11 @@ public class LoginController implements Initializable{
 					err.showAndWait();
 				}
 
-			}else if(privilegio.getValue().equals("Técnico")){
+			}else if(tipoUsuario.getValue().equals("TÃ©cnico")){
 				try {
 					svr.buscarTecnicoPorLogin(usrName, pswd);
 					((Node)event.getSource()).getScene().getWindow().hide();
-					Parent parent = FXMLLoader.load(getClass().getResource("Janela1.fxml"));
+					Parent parent = FXMLLoader.load(getClass().getResource("Janela1.fxml")); //carrega janela1
 					Stage stage = new Stage();
 					Scene scene = new Scene(parent);
 					stage.setScene(scene);
@@ -81,18 +81,18 @@ public class LoginController implements Initializable{
 			}
 		}catch(Exception e) {
 			Alert err = new Alert(AlertType.ERROR);
-			err.setContentText("Escolha um nível de privilégio!");
+			err.setContentText("Escolha um tipo de UsuÃ¡rio!");
 			err.showAndWait();
 		}
 
-	}//Fim do método chkLoginData
+	}//Fim do mï¿½todo chkLoginData
 
-	ObservableList<String> list = FXCollections.observableArrayList("Cliente", "Técnico");
+	ObservableList<String> list = FXCollections.observableArrayList("Cliente", "TÃ©cnico");
 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		privilegio.setItems(list);
+		tipoUsuario.setItems(list);
 
 	}
 }

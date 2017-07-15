@@ -13,7 +13,7 @@
          <children>
             <ImageView fitHeight="426.0" fitWidth="360.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../assistech.png" />
+              <Image url="@img/assistech.png" />
                </image>
             </ImageView>
             <TextField fx:id="txtUserName" layoutX="89.0" layoutY="126.0" prefHeight="25.0" prefWidth="181.0">
@@ -32,7 +32,7 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <ComboBox fx:id="privilegio" layoutX="99.0" layoutY="281.0" prefHeight="25.0" prefWidth="163.0" promptText="Selecione uma opçao" />
+            <ComboBox fx:id="tipoUsuario" layoutX="99.0" layoutY="281.0" prefHeight="25.0" prefWidth="163.0" promptText="Selecione uma opçao" />
             <PasswordField fx:id="pswdF" layoutX="89.0" layoutY="218.0" prefHeight="25.0" prefWidth="181.0">
                <font>
                   <Font size="16.0" />

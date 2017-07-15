@@ -8,7 +8,7 @@ import br.ufrpe.assistec.negocio.beans.Equipamento;
 public interface IRepositorioEquipamentos {
 	public boolean cadastrar (Equipamento e);
 	
-	public List<Equipamento> listar();
+	public List<Equipamento> listarEquipamentos();
 	
 	public void remover(String numSerie);
 	

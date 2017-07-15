@@ -90,7 +90,7 @@ public class RepositorioEquipamentoArrayList implements IRepositorioEquipamentos
 
 
 	@Override
-	public List<Equipamento> listar() {
+	public List<Equipamento> listarEquipamentos() {
 		return getInstance().listaEquipamentos;
 
 	}

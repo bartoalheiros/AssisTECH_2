@@ -10,6 +10,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 
 public class CadastrarClienteController {
+	ServidorAssisTech serv;
+	Cliente cliente;
+	Long cpf;
 	@FXML private TextField txtNome;
 	@FXML private TextField txtSobreNome;
 	@FXML private TextField txtCpf;
@@ -20,11 +23,11 @@ public class CadastrarClienteController {
 	@FXML private TextField txtSenha;
 	@FXML private Button btnCadastrar;
 	
-	ServidorAssisTech serv = ServidorAssisTech.getInstance();
-	
-	Long cpf = null;
 	
 	@FXML public void cadastrar() throws NumberFormatException, ClienteJahCadastradoException {
+		
+		serv = ServidorAssisTech.getInstance();
+		cpf = null;
 		
 		//testando o campo CPF
 		try{
@@ -37,13 +40,12 @@ public class CadastrarClienteController {
 		}
 		
 		
-		
-		//instanciando o cliente
-		Cliente cliente = new Cliente(txtLogin.getText(), txtSenha.getText(), cpf, txtNome.getText(), txtSobreNome.getText(), txtEndereco.getText(), txtTelefone.getText(), txtEmail.getText(), 0);
-		
+		//criando novo cliente
+		cliente = new Cliente(txtLogin.getText(), txtSenha.getText(), cpf, txtNome.getText(), txtSobreNome.getText(), txtEndereco.getText(), txtTelefone.getText(), txtEmail.getText(), 0);
 		
 		
-		//cadastrando o cliente
+		
+		//Preenchendo formulário de cliente
 		try {
 			serv.cadastrarCliente(cliente);
 			Alert inf = new Alert(AlertType.INFORMATION);
